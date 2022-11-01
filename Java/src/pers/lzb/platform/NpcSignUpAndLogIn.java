@@ -10,39 +10,52 @@ public class NpcSignUpAndLogIn {
     static HashMap<String, String> hashMap = new HashMap<String, String>();
 
     public static void signUp() {                  //注册
-        System.out.println("请输入你的名字！");     //输入名字
+        System.out.println("请输入你的名字！");        //输入名字
         Scanner name = new Scanner(System.in);
         npcName = name.nextLine();
 
-        System.out.println("请输入你的密码");       //输入密码
+        System.out.println("请输入你的密码");         //输入密码
         Scanner passage = new Scanner(System.in);
         npcPassword = passage.nextLine();
 
-        hashMap.put(npcName, npcPassword);  //将名字和密码添进哈希表
+        hashMap.put(npcName, npcPassword);     //将名字和密码添进哈希表
         System.out.println("注册完毕！");
     }
 
-    public static int logIn() {             //登录
+    public static int logIn() {//登录
+        System.out.println("请登录！");
         System.out.println("请输入你的名字！");
         Scanner name = new Scanner(System.in);
         npcName = name.nextLine();
+        boolean temp = hashMap.containsKey(npcName);
+        if(!temp){                                  //输入名字不正确或未注册
+            System.out.println("账户不存在！请先注册！");
+            signUp();
+            if(logIn() == 1){                         //登录成功
 
+            }else{
+                System.out.println("你还有一次机会！");
+                signOut();
+            }
+        }
         System.out.println("请输入你的密码！");
         Scanner passage = new Scanner(System.in);
         npcPassword = passage.nextLine();
-
-        String temp = hashMap.getOrDefault(npcName, "你还没有注册！请先注册！");
-        if(temp == "你还没有注册！请先注册！"){
-            System.exit(0);
-        }
-        if (temp.equals(npcPassword)) {
+        String p = hashMap.get(npcName);
+        if (p.equals(npcPassword)) {
             System.out.println("密码正确！请开始你的奇妙之旅！");
             return 1;
         } else {
             System.out.println("密码错误！请再输一遍！");
             return 0;
         }
+    }
+    public static void signOut(){
+        if(logIn() == 1){
 
+        }else{
+            System.exit(0);   //密码输错两次直接退出
+        }
     }
 
 
@@ -66,11 +79,7 @@ public class NpcSignUpAndLogIn {
 
                 }else{                         //登录失败
                     System.out.println("你还有一次机会！");
-                    if(logIn() == 1){
-
-                    }else{
-                        System.exit(0);
-                    }
+                    signOut();
                 }
     }
 
