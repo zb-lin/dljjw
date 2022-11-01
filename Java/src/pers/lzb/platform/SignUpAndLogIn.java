@@ -63,10 +63,10 @@ public class SignUpAndLogIn {
 
 
     public static void main(String[] args) {
-//        if (hashMap.isEmpty()) {
-        System.out.println("欢迎您，你是我们的第一个npc,请先注册！");
-        signUp();
-//        }
+        if (hashMap.isEmpty()) {
+            System.out.println("欢迎您，你是我们的第一个npc,请先注册！");
+            signUp();
+        }
 
         System.out.println("如果你还想注册，请输入:1,否则请输入:2");
 
