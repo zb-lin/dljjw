@@ -10,8 +10,8 @@ public class WriteFile {
         BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
         for (int i = 0; i < array.size(); ++i) {
             Account account = array.get(i);
-            StringBuffer sb = new StringBuffer();
-            sb.append(account.getUsername() + " " + account.getPassword());
+            StringBuilder sb=new StringBuilder();  //！！
+            sb.append(account.getUsername() + "," + account.getPassword());
             bw.write(sb.toString());
             bw.newLine();
             bw.flush();

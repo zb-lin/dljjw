@@ -13,16 +13,17 @@ public class SignUp {
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你的姓名");
         String username = sc.nextLine();
-        System.out.println("请输入你的密码");
-        String password = sc.nextLine();
-        //        boolean flag = false;
-
         for (int i = 0; i < array.size(); ++i) {
             if (array.get(i).getUsername().equals(username)) {
                 System.out.println("你已经注册！");
                 return;
             }
         }
+        System.out.println("请输入你的密码");
+        String password = sc.nextLine();
+        //        boolean flag = false;
+
+
         Account account = new Account();
         account.setUsername(username);
         account.setPassword(password);

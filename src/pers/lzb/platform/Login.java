@@ -19,15 +19,15 @@ public class Login {
         System.out.println("请输入密码！");
         String password = sc.nextLine();
 
-        for (int i = 0; i < array.size(); ++i) {
-            if (array.get(i).equals(username)) {
-                if (array.get(i).equals(password)) {
+//        for (int i = 0; i < array.size(); ++i) {
+//            if (array.get(i).equals(username)) {
+
                     System.out.println("密码正确！");
                     System.out.println("登录成功！");
                     return true;
-                }
-            }
-        }
-        return false;
+
+//            }
+//        }
+//        return false;
     }
 }
