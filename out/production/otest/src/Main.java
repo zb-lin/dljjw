@@ -1,3 +1,4 @@
+import pers.lzb.platform.AddFood;
 import pers.lzb.platform.Login;
 import pers.lzb.platform.SignUp;
 
@@ -9,8 +10,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String fileName = "data.txt";
+        String foodFileName = "foodData.txt";
 
-        System.out.println("如果你是npc请按:1,如果你是买家，请按:2");
+        System.out.println("欢迎来到庸叔的印度npc国际外卖平台！！");
+        System.out.println("如果你是indiaNpc请按:1,如果你是买家，请按:2");
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         if (num == 1) {
@@ -29,17 +32,16 @@ public class Main {
                         Login login = new Login();
                         if (login.login(fileName)) {
                             while (true) {
-                                System.out.println("增加菜品输入:1  删除菜品输入:2");
-                                System.out.println("查询所有菜品输入:3  该你的菜品输入:4");
+                                System.out.println("如果你想增加菜品，请输入:1  如果你想删除，请菜品输入:2");
+                                System.out.println("如果你想查询所有菜品，请输入:3  如果你想改你的菜品，请输入:4");
                                 System.out.println("按其他键退出！");
                                 Scanner t = new Scanner(System.in);
                                 int choice = t.nextInt();
                                 switch (choice) {
                                     case 1:                            //增
-                                        System.out.println("输入你的店名！");
-                                        System.out.println("输入你的菜名和价格！");
-
-
+                                        AddFood addFood = new AddFood();
+                                        addFood.addFood(foodFileName);
+                                        break;
                                     case 2:                           //删
 
                                     case 3:                           //查

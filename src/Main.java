@@ -1,3 +1,4 @@
+import pers.lzb.platform.AddFood;
 import pers.lzb.platform.Login;
 import pers.lzb.platform.SignUp;
 
@@ -9,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String fileName = "data.txt";
-        String foodFileName = "foodData";
+        String foodFileName = "foodData.txt";
 
         System.out.println("欢迎来到庸叔的印度npc国际外卖平台！！");
         System.out.println("如果你是indiaNpc请按:1,如果你是买家，请按:2");
@@ -38,7 +39,9 @@ public class Main {
                                 int choice = t.nextInt();
                                 switch (choice) {
                                     case 1:                            //增
-
+                                        AddFood addFood = new AddFood();
+                                        addFood.addFood(foodFileName);
+                                        break;
                                     case 2:                           //删
 
                                     case 3:                           //查
