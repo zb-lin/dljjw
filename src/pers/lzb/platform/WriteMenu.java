@@ -13,6 +13,7 @@ public class WriteMenu {
             bw.write(sb.toString());
             bw.newLine();
             bw.flush();
+            
         }
         bw.close();
     }
