@@ -21,8 +21,6 @@ public class SignUp {
         }
         System.out.println("请输入你的密码");
         String password = sc.nextLine();
-        //        boolean flag = false;
-
 
         Account account = new Account();
         account.setUsername(username);
@@ -31,14 +29,5 @@ public class SignUp {
         WriteFile writeFile = new WriteFile();
         writeFile.writeFile(fileName, array);
         System.out.println("注册成功");
-
-
-//            }
-//            if (flag) {
-//                System.out.println("你已经注册！");
-//            } else {
-//                break;
-//            }
     }
-
 }

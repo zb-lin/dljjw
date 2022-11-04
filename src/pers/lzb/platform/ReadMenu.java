@@ -8,11 +8,11 @@ public class ReadMenu {
         BufferedReader br = new BufferedReader(new FileReader(foodFilmName));
         String line;
         while ((line = br.readLine()) != null) {
-            String[] str = line.split(",");
-            Menu menu = new Menu();  //报错在Account在加一个就行
-            menu.setID(str[0]);
-//            menu.setPriceOne(str[1]);
-//            menu.setFoodOne(str[2]);
+            String[] str = line.split(" ");
+            Menu menu = new Menu();
+            menu.setShopName(str[0]);
+            menu.setPriceOne(str[1]);
+            menu.setFoodOne(str[2]);
             array.add(menu);
         }
         br.close();

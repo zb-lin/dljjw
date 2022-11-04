@@ -1,34 +1,19 @@
 package pers.lzb.platform;
 
 public class Menu {
-    private String id;
     private String shopName;
     private String foodOne;
-//    private String foodTwo;
-
     private String priceOne;
-//    private String priceTwo;
-
 
     public Menu() {
-
     }
 
-//    public Menu(String id,String shopName, String foodOne, String priceOne) {
-//        this.id = id;
-//        this.shopName = shopName;
+    //    public Menu(String shopName, String foodOne, String priceOne) {
+//
+//       this.shopName = shopName;
 //        this.foodOne = foodOne;
 //        this.priceOne = priceOne;
 //    }
-
-    public void setID(String id) {
-        this.id = id;
-    }
-
-    public String getID() {
-        return id;
-    }
-
     public void setShopName(String shopName) {
         this.shopName = shopName;
     }
@@ -45,16 +30,6 @@ public class Menu {
         return foodOne;
     }
 
-
-//    public void setFoodTwo(String foodTwo) {
-//        this.foodTwo = foodTwo;
-//    }
-//
-//    public String getFoodTwo() {
-//        return foodTwo;
-//    }
-
-
     public void setPriceOne(String priceOne) {
         this.priceOne = priceOne;
     }
@@ -63,13 +38,5 @@ public class Menu {
         return priceOne;
     }
 
-
-//    public void setPriceTwo(String priceTwo) {
-//        this.priceTwo = priceTwo;
-//    }
-//
-//    public String getPriceTwo() {
-//        return priceTwo;
-//    }
 
 }
