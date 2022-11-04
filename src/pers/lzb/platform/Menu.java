@@ -1,29 +1,39 @@
 package pers.lzb.platform;
 
 public class Menu {
+    private String id;
     private String shopName;
     private String foodOne;
-    private String foodTwo;
+//    private String foodTwo;
 
     private String priceOne;
-    private String priceTwo;
+//    private String priceTwo;
 
 
     public Menu() {
 
     }
 
-    public Menu(String shopName,String foodOne, String foodTwo, String priceOne, String priceTwo) {
+    public Menu(String id,String shopName, String foodOne, String priceOne) {
+        this.id = id;
         this.shopName = shopName;
         this.foodOne = foodOne;
-        this.foodTwo = foodTwo;
         this.priceOne = priceOne;
-        this.priceTwo = priceTwo;
     }
-    public void setShopName(String shopName){
-        this.shopName=shopName;
+
+    public void setID(String id) {
+        this.id = id;
     }
-    public  String getShopName(){
+
+    public String getID() {
+        return id;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getShopName() {
         return shopName;
     }
 
@@ -36,29 +46,30 @@ public class Menu {
     }
 
 
-    public void setFoodTwo(String foodTwo) {
-        this.foodTwo = foodTwo;
-    }
-
-    public String getFoodTwo() {
-        return foodTwo;
-    }
+//    public void setFoodTwo(String foodTwo) {
+//        this.foodTwo = foodTwo;
+//    }
+//
+//    public String getFoodTwo() {
+//        return foodTwo;
+//    }
 
 
     public void setPriceOne(String priceOne) {
         this.priceOne = priceOne;
     }
+
     public String getPriceOne() {
         return priceOne;
     }
 
 
-    public void setPriceTwo(String priceTwo) {
-        this.priceTwo = priceTwo;
-    }
-
-    public String getPriceTwo() {
-        return priceTwo;
-    }
+//    public void setPriceTwo(String priceTwo) {
+//        this.priceTwo = priceTwo;
+//    }
+//
+//    public String getPriceTwo() {
+//        return priceTwo;
+//    }
 
 }

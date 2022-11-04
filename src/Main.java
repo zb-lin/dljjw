@@ -1,4 +1,5 @@
 import pers.lzb.platform.AddFood;
+import pers.lzb.platform.DeleteFood;
 import pers.lzb.platform.Login;
 import pers.lzb.platform.SignUp;
 
@@ -32,7 +33,7 @@ public class Main {
                         Login login = new Login();
                         if (login.login(fileName)) {
                             while (true) {
-                                System.out.println("如果你想增加菜品，请输入:1  如果你想删除，请菜品输入:2");
+                                System.out.println("如果你想增加菜品，请输入:1  如果你想删除菜品，请输入:2");
                                 System.out.println("如果你想查询所有菜品，请输入:3  如果你想改你的菜品，请输入:4");
                                 System.out.println("按其他键退出！");
                                 Scanner t = new Scanner(System.in);
@@ -43,7 +44,9 @@ public class Main {
                                         addFood.addFood(foodFileName);
                                         break;
                                     case 2:                           //删
-
+                                        DeleteFood deleteFood = new DeleteFood();
+                                        deleteFood.deleteFood(foodFileName);
+                                        break;
                                     case 3:                           //查
 
                                     case 4:                            //改
@@ -52,8 +55,6 @@ public class Main {
                                     default:
                                         System.exit(0);
                                 }
-
-
                             }
 
                         } else {            //登录失败
