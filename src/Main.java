@@ -56,8 +56,6 @@ public class Main {
                                         System.exit(0);
                                 }
                             }
-
-
                         } else {            //登录失败
                             System.out.println("登录失败！");
                             break;

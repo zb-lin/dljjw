@@ -29,7 +29,7 @@ public class DeleteFood {
         String food = sc.nextLine();
 
         for (int i = 0; i < array.size(); ++i) {
-            if (array.get(i).getFoodOne().equals(food)) {
+            if (array.get(i).getFood().equals(food)) {
                 array.remove(i);
                 WriteMenu writeMenu = new WriteMenu();
                 writeMenu.writeMenu(foodFileName, array);

@@ -2,8 +2,8 @@ package pers.lzb.platform;
 
 public class Menu {
     private String shopName;
-    private String foodOne;
-    private String priceOne;
+    private String food;
+    private String price;
 
     public void setShopName(String shopName) {
         this.shopName = shopName;
@@ -13,20 +13,20 @@ public class Menu {
         return shopName;
     }
 
-    public void setFoodOne(String foodOne) {
-        this.foodOne = foodOne;
+    public void setFood(String food) {
+        this.food = food;
     }
 
-    public String getFoodOne() {
-        return foodOne;
+    public String getFood() {
+        return food;
     }
 
-    public void setPriceOne(String priceOne) {
-        this.priceOne = priceOne;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public String getPriceOne() {
-        return priceOne;
+    public String getPrice() {
+        return price;
     }
 
 

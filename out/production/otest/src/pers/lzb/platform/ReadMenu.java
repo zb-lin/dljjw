@@ -11,8 +11,8 @@ public class ReadMenu {
             String[] str = line.split(" ");
             Menu menu = new Menu();
             menu.setShopName(str[0]);
-            menu.setPriceOne(str[1]);
-            menu.setFoodOne(str[2]);
+            menu.setPrice(str[1]);
+            menu.setFood(str[2]);
             array.add(menu);
         }
         br.close();

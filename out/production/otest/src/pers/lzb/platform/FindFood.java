@@ -29,7 +29,7 @@ public class FindFood {
         } else {
             for (int i = 0; i < array.size(); ++i) {
                 if (shopName.equals(array.get(i).getShopName())) {
-                    System.out.println(array.get(i).getShopName() + " " + array.get(i).getFoodOne() + " " + array.get(i).getPriceOne());
+                    System.out.println(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
                 }
             }
         }

@@ -10,7 +10,7 @@ public class WriteMenu {
         for (int i = 0; i < array.size(); ++i) {
             Menu menu = array.get(i);
             StringBuilder sb = new StringBuilder();
-            sb.append(menu.getShopName() + " " + menu.getFoodOne() + " " + menu.getPriceOne());
+            sb.append(menu.getShopName() + " " + menu.getFood() + " " + menu.getPrice());
             bw.write(sb.toString());
             bw.newLine();
             bw.flush();

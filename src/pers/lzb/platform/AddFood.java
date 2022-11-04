@@ -13,11 +13,11 @@ public class AddFood {
         String shopName = sc.nextLine();
 
         System.out.println("请输入菜的名字！");
-        String foodOne = sc.nextLine();
+        String food = sc.nextLine();
 
         for (int i = 0; i < array.size(); ++i) {
             if (shopName.equals(array.get(i).getShopName())) {
-                if (foodOne.equals(array.get(i).getFoodOne())) {
+                if (food.equals(array.get(i).getFood())) {
                     System.out.println("你已经添加过该菜品！");
                     return;
                 }
@@ -25,12 +25,12 @@ public class AddFood {
         }
 
         System.out.println("请输入菜的价格！");
-        String priceOne = sc.nextLine();
+        String price = sc.nextLine();
 
         Menu menu = new Menu();
         menu.setShopName(shopName);
-        menu.setFoodOne(foodOne);
-        menu.setPriceOne(priceOne);
+        menu.setFood(food);
+        menu.setPrice(price);
 
 
         array.add(menu);
