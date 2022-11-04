@@ -14,12 +14,12 @@ public class Menu {
 
     }
 
-    public Menu(String id,String shopName, String foodOne, String priceOne) {
-        this.id = id;
-        this.shopName = shopName;
-        this.foodOne = foodOne;
-        this.priceOne = priceOne;
-    }
+//    public Menu(String id,String shopName, String foodOne, String priceOne) {
+//        this.id = id;
+//        this.shopName = shopName;
+//        this.foodOne = foodOne;
+//        this.priceOne = priceOne;
+//    }
 
     public void setID(String id) {
         this.id = id;

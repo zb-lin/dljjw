@@ -12,7 +12,7 @@ public class ReadFile {
             String[] str = line.split(",");
             Account account = new Account();  //报错在Account在加一个就行
             account.setUsername(str[0]);
-//            account.setPassword(str[1]);           //注释掉后也可以输入，不注释反而会数组越界
+            account.setPassword(str[1]);           //注释掉后也可以输入，不注释反而会数组越界
             array.add(account);
         }
         br.close();

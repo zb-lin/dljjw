@@ -1,7 +1,4 @@
-import pers.lzb.platform.AddFood;
-import pers.lzb.platform.DeleteFood;
-import pers.lzb.platform.Login;
-import pers.lzb.platform.SignUp;
+import pers.lzb.platform.*;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -48,34 +45,29 @@ public class Main {
                                         deleteFood.deleteFood(foodFileName);
                                         break;
                                     case 3:                           //查
-
+                                        FindFood findFood = new FindFood();
+                                        findFood.findFood(foodFileName);
+                                        break;
                                     case 4:                            //改
-
-
+                                        ChangeFood changeFood = new ChangeFood();
+                                        changeFood.changeFood(foodFileName);
+                                        break;
                                     default:
                                         System.exit(0);
                                 }
                             }
 
+
                         } else {            //登录失败
-                            System.out.println("111");
+                            System.out.println("登录失败！");
+                            break;
                         }
-                        break;
-
-
                     case 3:               //退出
                         System.exit(0);
-
                 }
-
-
             }
-
-
         } else if (num == 2) {                //买家
-            while (true) {
-
-            }
+            System.out.println("");
 
         }
 

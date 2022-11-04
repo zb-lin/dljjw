@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class AddFood {
     public void addFood(String foodFileName) throws IOException {
-        ArrayList<Menu> array = new ArrayList<Menu>();
-//        ReadMenu readMenu = new ReadMenu();
-        ReadMenu.readMenu(foodFileName, array);
+        ArrayList<Menu> array = new ArrayList<>();
+        ReadMenu readMenu = new ReadMenu();
+        readMenu.readMenu(foodFileName, array);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("请输入菜的编号！");
@@ -38,8 +38,8 @@ public class AddFood {
 //        menu.setPriceTwo(priceTwo);
 
         array.add(menu);
-//        WriteMenu writeMenu =new WriteMenu();
-        WriteMenu.writeMenu(foodFileName,array);
+        WriteMenu writeMenu = new WriteMenu();
+        writeMenu.writeMenu(foodFileName, array);
         System.out.println("您的菜品已添加成功！！");
 
 

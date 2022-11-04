@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class ReadMenu {
-    public static void readMenu(String foodFilmName, ArrayList<Menu> array) throws IOException {
+    public void readMenu(String foodFilmName, ArrayList<Menu> array) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(foodFilmName));
         String line;
         while ((line = br.readLine()) != null) {
