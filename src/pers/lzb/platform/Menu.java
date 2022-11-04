@@ -5,15 +5,6 @@ public class Menu {
     private String foodOne;
     private String priceOne;
 
-    public Menu() {
-    }
-
-    //    public Menu(String shopName, String foodOne, String priceOne) {
-//
-//       this.shopName = shopName;
-//        this.foodOne = foodOne;
-//        this.priceOne = priceOne;
-//    }
     public void setShopName(String shopName) {
         this.shopName = shopName;
     }
