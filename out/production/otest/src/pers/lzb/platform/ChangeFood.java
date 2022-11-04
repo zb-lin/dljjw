@@ -29,24 +29,20 @@ public class ChangeFood {
             switch (num) {
                 case 1:
                     ChangeShopName changeShopName = new ChangeShopName();
-                    changeShopName.changeShopName(foodFileName,shopName);
+                    changeShopName.changeShopName(foodFileName, shopName);
                     break;
                 case 2:
                     ChangeFoodName changeFoodName = new ChangeFoodName();
-                    changeFoodName.changeFoodName(foodFileName,shopName);
+                    changeFoodName.changeFoodName(foodFileName, shopName);
                     break;
                 case 3:
-                    ChangeFoodPrice changeFoodPrice =new ChangeFoodPrice();
-                    changeFoodPrice.changeFoodPrice(foodFileName,shopName);
+                    ChangeFoodPrice changeFoodPrice = new ChangeFoodPrice();
+                    changeFoodPrice.changeFoodPrice(foodFileName, shopName);
                     break;
                 default:
                     break;
 
             }
         }
-
-
     }
-
-
 }
