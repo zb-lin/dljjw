@@ -31,7 +31,7 @@ public class Main {
                         if (login.login(fileName)) {
                             while (true) {
                                 System.out.println("如果你想增加菜品，请输入:1  如果你想删除菜品，请输入:2");
-                                System.out.println("如果你想查询所有菜品，请输入:3  如果你想改你的菜品，请输入:4");
+                                System.out.println("如果你想查询所有菜品，请输入:3  如果你想改你信息或菜品，请输入:4");
                                 System.out.println("按其他键退出！");
                                 Scanner t = new Scanner(System.in);
                                 int choice = t.nextInt();
