@@ -40,11 +40,13 @@ public class ChangeFoodName {
             } else {
                 for (int i = 0; i < array.size(); ++i) {
                     if (shopName.equals(array.get(i).getShopName())) {
-                        menu.setShopName(shopName);
-                        menu.setFood(newFoodName);
-                        menu.setPrice(array.get(i).getPrice());
-                        array.set(i, menu);
-                        writeMenu.writeMenu(foodFileName, array);
+                        if (foodName.equals(array.get(i).getFood())) {
+                            menu.setShopName(shopName);
+                            menu.setFood(newFoodName);
+                            menu.setPrice(array.get(i).getPrice());
+                            array.set(i, menu);
+                            writeMenu.writeMenu(foodFileName, array);
+                        }
                     }
                 }
                 System.out.println("修改成功！");
