@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String fileName = "data.txt";
+        String fileName = "data.txt";                     //文件路径
         String foodFileName = "foodData.txt";
 
         System.out.println("欢迎来到庸叔的印度npc国际外卖平台！！");
@@ -20,12 +20,12 @@ public class Main {
             int number = sc.nextInt();
 
             switch (number) {
-                case 1://注册
+                case 1:                                //注册
                     SignUp signUp = new SignUp();
                     signUp.signUp(fileName);
                     break;
 
-                case 2:               //登录
+                case 2:                                //登录
                     Login login = new Login();
                     if (login.login(fileName)) {
                         System.out.println("如果你是indiaNpc请按:1,如果你是买家，请按:2");
@@ -59,7 +59,7 @@ public class Main {
                                         System.exit(0);
                                 }
                             }
-                        } else if (num == 2) {//买家
+                        } else if (num == 2) {                     //买家
                             System.out.println("请看菜单！！");
                             System.out.println("店名 菜名 价格");
                             ViewMenu viewMenu = new ViewMenu();  //看菜单
