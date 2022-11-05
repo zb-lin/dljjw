@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class SignUp {
     public void signUp(String fileName) throws IOException {
         ArrayList<Account> array = new ArrayList<>();
-        ReadFile readFile =new ReadFile();
+        ReadFile readFile = new ReadFile();
         readFile.readFile(fileName, array);
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你的姓名");
