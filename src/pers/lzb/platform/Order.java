@@ -21,7 +21,7 @@ public class Order {
         float sum = 0;
 
         while (true) {
-            Scanner sc =new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
             System.out.println("请输入你要的店家！！");
             String shopName = sc.nextLine();
 
@@ -59,20 +59,20 @@ public class Order {
         System.out.println("请填写您的外卖地址！");
         Scanner scanner = new Scanner(System.in);
         String address = scanner.nextLine();
-        if(address.equals("印度")||address.equals("india")||address.equals("India")){
+        if (address.equals("印度") || address.equals("india") || address.equals("India")) {
             System.out.println("商家正在备餐！");
-            nowTime.add(Calendar.MINUTE,30);
+            nowTime.add(Calendar.MINUTE, 30);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            System.out.println("预计送达时间:"+sdf.format(nowTime.getTime()));
-        }else{
+            System.out.println("预计送达时间:" + sdf.format(nowTime.getTime()));
+        } else {
             System.out.println("商家正在备餐！");
-            nowTime.add(Calendar.YEAR,1);
+            nowTime.add(Calendar.YEAR, 1);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            System.out.println("预计送达时间:"+sdf.format(nowTime.getTime()));
+            System.out.println("预计送达时间:" + sdf.format(nowTime.getTime()));
             System.out.println("感觉太晚就按:1启用飞机运输！！");
             Scanner sca = new Scanner(System.in);
             int num = sca.nextInt();
-            if(num == 1 ){
+            if (num == 1) {
                 System.out.println("你被骗了！");
             }
         }
