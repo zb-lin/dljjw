@@ -1,4 +1,9 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.function;
+
+import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.npc.judge.JudgeFood;
+import pers.lzb.platform.npc.trunk.Menu;
+import pers.lzb.platform.npc.trunk.Set;
 
 import java.io.*;
 import java.util.*;

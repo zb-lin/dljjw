@@ -1,4 +1,6 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.trunk;
+
+import pers.lzb.platform.npc.trunk.Menu;
 
 import java.io.*;
 import java.util.*;

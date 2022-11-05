@@ -8,9 +8,9 @@ import java.util.*;
 public class FindFood {
 
     public void findFood(String foodFileName) throws IOException {
-        ArrayList<Menu> array = new ArrayList<Menu>();
-        ReadMenu readMenu = new ReadMenu();
-        readMenu.readMenu(foodFileName, array);
+        Read read = new Read();
+        ArrayList<Menu> array;
+        array=read.read(foodFileName);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("请输入你的店名！");

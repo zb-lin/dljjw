@@ -5,9 +5,9 @@ import java.util.*;
 
 public class DeleteFood {
     public void deleteFood(String foodFileName) throws IOException {
-        ArrayList<Menu> array = new ArrayList<>();
-        ReadMenu readMenu = new ReadMenu();
-        readMenu.readMenu(foodFileName, array);
+        Read read = new Read();
+        ArrayList<Menu> array;
+        array=read.read(foodFileName);
 
         Scanner sc = new Scanner(System.in);
 

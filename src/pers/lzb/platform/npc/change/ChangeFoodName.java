@@ -1,4 +1,9 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.change;
+
+import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.npc.judge.JudgeFood;
+import pers.lzb.platform.npc.trunk.Menu;
+import pers.lzb.platform.npc.trunk.SetName;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -27,9 +32,9 @@ public class ChangeFoodName {
             } else {
                 for (int i = 0; i < array.size(); ++i) {
                     JudgeFood judgeFood = new JudgeFood();
-                    if (judgeFood.judgeFoodInFor(array, shopName, foodName,i)) {
-                        SetName setName =new SetName();
-                        setName.setName(array ,foodFileName, shopName, newFoodName,array.get(i).getPrice(),i);
+                    if (judgeFood.judgeFoodInFor(array, shopName, foodName, i)) {
+                        SetName setName = new SetName();
+                        setName.setName(array, foodFileName, shopName, newFoodName, array.get(i).getPrice(), i);
                     }
                 }
                 System.out.println("修改成功！");

@@ -1,4 +1,8 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.change;
+
+import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.npc.trunk.Menu;
+import pers.lzb.platform.npc.trunk.WriteMenu;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,9 +10,10 @@ import java.util.Scanner;
 
 public class ChangeShopName {
     public void changeShopName(String foodFileName, String shopName) throws IOException {
-        ArrayList<Menu> array = new ArrayList<>();
-        ReadMenu readMenu = new ReadMenu();
-        readMenu.readMenu(foodFileName, array);
+        Read read = new Read();
+        ArrayList<Menu> array;
+        array = read.read(foodFileName);
+
         Menu menu = new Menu();
         WriteMenu writeMenu = new WriteMenu();
         Scanner sc = new Scanner(System.in);

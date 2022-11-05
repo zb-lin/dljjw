@@ -1,4 +1,4 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.trunk;
 
 public class Menu {
     private String shopName;

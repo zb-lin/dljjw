@@ -1,4 +1,6 @@
-package pers.lzb.platform;
+package pers.lzb.platform.major.tools;
+
+import pers.lzb.platform.major.trunk.Account;
 
 import java.io.*;
 

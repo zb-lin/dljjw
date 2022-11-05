@@ -1,4 +1,6 @@
-package pers.lzb.platform;
+package pers.lzb.platform.major.tools;
+
+import pers.lzb.platform.major.trunk.Account;
 
 import java.io.*;
 import java.util.*;
@@ -10,7 +12,6 @@ public class ReadFile {
         BufferedReader br = new BufferedReader(new FileReader(fileName));  //从字符输入流中读取文本并缓冲字符
         String line;
         while ((line = br.readLine()) != null) {           //一次读取一行文本
-
             String[] str = line.split(" ");
             Account account = new Account();
             account.setUsername(str[0]);

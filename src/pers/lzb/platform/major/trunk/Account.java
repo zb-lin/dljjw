@@ -1,4 +1,4 @@
-package pers.lzb.platform;
+package pers.lzb.platform.major.trunk;
 
 public class Account {
     private String username;

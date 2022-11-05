@@ -1,4 +1,8 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.function;
+
+import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.npc.judge.JudgeShopName;
+import pers.lzb.platform.npc.trunk.Menu;
 
 import java.io.IOException;
 import java.util.*;
@@ -8,23 +12,16 @@ import java.util.*;
 public class FindFood {
 
     public void findFood(String foodFileName) throws IOException {
-        ArrayList<Menu> array = new ArrayList<Menu>();
-        ReadMenu readMenu = new ReadMenu();
-        readMenu.readMenu(foodFileName, array);
+        Read read = new Read();
+        ArrayList<Menu> array;
+        array = read.read(foodFileName);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("请输入你的店名！");
         String shopName = sc.nextLine();
 
-        boolean flag = true;
-
-        for (int i = 0; i < array.size(); ++i) {
-            if (shopName.equals(array.get(i).getShopName())) {
-                flag = false;
-            }
-        }
-
-        if (flag) {
+        JudgeShopName judgeShopName = new JudgeShopName();
+        if (!judgeShopName.judgeShopName(array, shopName)) {
             System.out.println("你还没有输入你的菜品！");
         } else {
             for (int i = 0; i < array.size(); ++i) {

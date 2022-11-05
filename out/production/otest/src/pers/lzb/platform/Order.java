@@ -12,9 +12,9 @@ import java.util.SimpleTimeZone;
 public class Order {
     public void order(String foodFileName) throws IOException {
 
-        ArrayList<Menu> array = new ArrayList<>();
-        ReadMenu readMenu = new ReadMenu();
-        readMenu.readMenu(foodFileName, array);
+        Read read = new Read();
+        ArrayList<Menu> array;
+        array=read.read(foodFileName);
 
         Calendar nowTime = Calendar.getInstance();
 

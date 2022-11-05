@@ -1,4 +1,9 @@
-package pers.lzb.platform;
+package pers.lzb.platform.npc.change;
+
+import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.npc.judge.JudgeFood;
+import pers.lzb.platform.npc.trunk.Menu;
+import pers.lzb.platform.npc.trunk.SetName;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,8 +15,6 @@ public class ChangeFoodPrice {
         ArrayList<Menu> array;
         array = read.read(foodFileName);
 
-        Menu menu = new Menu();
-        WriteMenu writeMenu = new WriteMenu();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("请输入你要修改的价格的菜名！");
@@ -27,7 +30,7 @@ public class ChangeFoodPrice {
             String newFoodPrice = sc.nextLine();
 
             for (int i = 0; i < array.size(); ++i) {
-                if (judgeFood.judgeFoodInFor(array, shopName, foodName,i)) {
+                if (judgeFood.judgeFoodInFor(array, shopName, foodName, i)) {
                     SetName setName = new SetName();
                     setName.setName(array, foodFileName, shopName, foodName, newFoodPrice, i);
                 }
