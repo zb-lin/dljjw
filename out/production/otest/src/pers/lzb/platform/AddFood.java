@@ -16,8 +16,8 @@ public class AddFood {
         String food = sc.nextLine();
 
         for (int i = 0; i < array.size(); ++i) {
-            if (shopName.equals(array.get(i).getShopName())) {
-                if (food.equals(array.get(i).getFood())) {
+            if (array.get(i).getShopName().equals(shopName)) {
+                if (array.get(i).getFood().equals(food)) {
                     System.out.println("你已经添加过该菜品！");
                     return;
                 }
