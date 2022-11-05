@@ -20,7 +20,7 @@ public class Login {
 
         for (int i = 0; i < array.size(); ++i) {
             if (username.equals(array.get(i).getUsername())) {
-                if(password.equals(array.get(i).getPassword())){
+                if (password.equals(array.get(i).getPassword())) {
                     System.out.println("密码正确！");
                     System.out.println("登录成功！");
                     return true;
