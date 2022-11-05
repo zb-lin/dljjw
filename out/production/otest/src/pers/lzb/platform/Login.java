@@ -18,7 +18,25 @@ public class Login {
 
         System.out.println("请输入密码！");
         String password = sc.nextLine();
+<<<<<<< HEAD
         JudgePassword judge = new JudgePassword();
         return judge.judgePassword(array, username, password);
+=======
+
+        for (int i = 0; i < array.size(); ++i) {
+            if (username.equals(array.get(i).getUsername())) {
+                if (password.equals(array.get(i).getPassword())) {
+                    System.out.println("密码正确！");
+                    System.out.println("登录成功！");
+                    return true;
+                }
+                System.out.println("密码错误！");
+                return false;
+            }
+        }
+        System.out.println("用户不存在！");
+        System.out.println("请先注册！");
+        return false;
+>>>>>>> 913256cc50054b46235986208786b218c86e5f2f
     }
 }
