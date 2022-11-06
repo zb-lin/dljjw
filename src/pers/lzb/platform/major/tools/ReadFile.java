@@ -18,7 +18,7 @@ public class ReadFile {
         String line;
         while ((line = br.readLine()) != null) {  // 一次读取一行文本
             if (!line.isEmpty()) {  // 避免line是空行
-                String[] str = line.split("带来经济网");  // 用该字符串分隔账号和密码，避免账号密码有奇怪东西
+                String[] str = line.split("大三角包擦肩曹三");  // 用该字符串分隔账号和密码，避免账号密码有奇怪东西
                 Account account = new Account();
                 account.setUsername(str[0]);
                 account.setPassword(str[1]);

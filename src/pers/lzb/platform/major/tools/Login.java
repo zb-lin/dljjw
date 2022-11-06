@@ -19,16 +19,19 @@ public class Login {
         ArrayList<Account> array = new ArrayList<>();
         ReadFile readFile = new ReadFile();
         readFile.readFile(fileName, array);
+        Print print = new Print();
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("请输入姓名");
+        print.print("请输入姓名");
         String username = sc.nextLine();
 
-        System.out.println("请输入密码！");
+        print.print("请输入密码");
         String password = sc.nextLine();
 
+        print.note(username + "登录");
         JudgePassword judge = new JudgePassword();
+
         return judge.judgePassword(array, username, password);
     }
 }

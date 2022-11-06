@@ -1,5 +1,8 @@
 package pers.lzb.platform.npc.change;
 
+import pers.lzb.platform.major.tools.GetName;
+import pers.lzb.platform.major.tools.Print;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -12,11 +15,13 @@ public class ChangeFoodChoice {
      * @author lzb
      */
     public void changeFoodChoice(String foodFileName, String shopName) throws IOException {
-        System.out.println("如果你要修改店名，输入:1   如果你要修改菜名，输入:2   如果你要修改价格，输入:3");
+        Print print = new Print();
+        print.print("如果你要修改店名，输入:1   如果你要修改菜名，输入:2   如果你要修改价格，输入:3");
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         switch (num) {
             case 1:
+                print.note(GetName.name+"修改"+shopName+"的店名");
                 ChangeShopName changeShopName = new ChangeShopName();
                 changeShopName.changeShopName(foodFileName, shopName);
                 break;
@@ -29,9 +34,8 @@ public class ChangeFoodChoice {
                 changeFoodPrice.changeFoodPrice(foodFileName, shopName);
                 break;
             default:
-                System.out.println("输入无效！");
+                print.printAndNote("输入无效！",GetName.name+"在修改信息操作选择中输入无效数字");
                 break;
-
         }
     }
 }

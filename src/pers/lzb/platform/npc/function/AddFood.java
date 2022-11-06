@@ -1,5 +1,7 @@
 package pers.lzb.platform.npc.function;
 
+import pers.lzb.platform.major.tools.GetName;
+import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.tools.Read;
 import pers.lzb.platform.npc.judge.JudgeFood;
 import pers.lzb.platform.npc.judge.JudgeFoodPrice;
@@ -19,31 +21,33 @@ public class AddFood {
     public void addFood(String foodFileName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array = read.read(foodFileName);
+        Print print = new Print();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入你的店名！");
+        print.print("请输入你的店名！");
         String shopName = sc.nextLine();
 
-        System.out.println("请输入菜的名字！");
+        print.print("请输入菜的名字！");
         String foodName = sc.nextLine();
 
         JudgeFood judgeFood = new JudgeFood();
         if (judgeFood.judgeFood(array, shopName, foodName)) {
-            System.out.println("你已经添加过该菜品！");
+            print.printAndNote("你已经添加过该菜品！", GetName.name+"已经添加过"+foodName+",添加失败");
             return;
         }
-        System.out.println("请输入菜的价格！");
+        print.print("请输入菜的价格！");
         String price = sc.nextLine();
 
         JudgeFoodPrice judgeFoodPrice = new JudgeFoodPrice();
         if (judgeFoodPrice.judgeFoodPrice(price)) {
-            System.out.println("输入价格不为整数!");
+            print.printAndNote("输入价格不为整数!",GetName.name+"输入的价格"+price+"不为整数,添加失败");
             return;
         }
 
         Set set = new Set();
         set.set(array, foodFileName, shopName, foodName, price);
-        System.out.println("您的菜品已添加成功！！");
+        print.printAndNote("您的菜品已添加成功！！",GetName.name+"在"+shopName+"的菜品"+foodName+"添加成功,"+"价格为"+price);
+        System.out.println();
 
     }
 

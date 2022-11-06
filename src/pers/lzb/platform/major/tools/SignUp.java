@@ -19,15 +19,16 @@ public class SignUp {
         ReadFile readFile = new ReadFile();
         readFile.readFile(fileName, array);
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入你的姓名");
+        Print print = new Print();
+        print.print("请输入你的姓名");
         String username = sc.nextLine();
         for (int i = 0; i < array.size(); ++i) {
             if (array.get(i).getUsername().equals(username)) {
-                System.out.println("你已经注册！");
+                print.printAndNote("你已经注册！", username + "已注册");
                 return;
             }
         }
-        System.out.println("请输入你的密码");
+        print.print("请输入你的密码");
         String password = sc.nextLine();
 
         Account account = new Account();
@@ -36,6 +37,6 @@ public class SignUp {
         array.add(account);
         WriteFile writeFile = new WriteFile();
         writeFile.writeFile(fileName, array);
-        System.out.println("注册成功");
+        print.printAndNote("注册成功!", "注册成功,账号密码为" + username + " " + password);
     }
 }

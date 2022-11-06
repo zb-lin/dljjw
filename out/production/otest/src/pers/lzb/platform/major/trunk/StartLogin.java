@@ -1,7 +1,9 @@
 package pers.lzb.platform.major.trunk;
 
 import pers.lzb.platform.buyer.Customer;
+import pers.lzb.platform.major.tools.GetName;
 import pers.lzb.platform.major.tools.Login;
+import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.npc.trunk.Npc;
 
 import java.io.IOException;
@@ -18,21 +20,24 @@ public class StartLogin {
     public void startLogin(String fileName, String foodFileName) throws IOException {
         Login login = new Login();
         Scanner sc = new Scanner(System.in);
+        Print print = new Print();
 
         if (login.login(fileName)) {
-            System.out.println("如果你是indiaNpc请按:1,如果你是买家，请按:2");
+            print.print("如果你是indiaNpc请按:1,如果你是买家，请按:2");
             int num = sc.nextInt();
 
             if (num == 1) {  // 卖家
+                print.note(GetName.name+"npc操作");
                 Npc npc = new Npc();
                 npc.npc(foodFileName);
             } else if (num == 2) {  // 买家
+                print.note(GetName.name+"买家操作");
                 Customer customer = new Customer();
                 customer.customer(foodFileName);
             }
 
         } else {  // 登录失败
-            System.out.println("登录失败！");
+            print.printAndNote("登录失败！",GetName.name+"登录失败");
         }
     }
 }

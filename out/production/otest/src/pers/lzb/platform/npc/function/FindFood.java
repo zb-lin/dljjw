@@ -1,5 +1,7 @@
 package pers.lzb.platform.npc.function;
 
+import pers.lzb.platform.major.tools.GetName;
+import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.tools.Read;
 import pers.lzb.platform.npc.judge.JudgeShopName;
 import pers.lzb.platform.npc.trunk.Menu;
@@ -22,17 +24,19 @@ public class FindFood {
         ArrayList<Menu> array;
         array = read.read(foodFileName);
         Scanner sc = new Scanner(System.in);
+        Print print = new Print();
 
-        System.out.println("请输入你的店名！");
+        print.print("请输入你的店名！");
         String shopName = sc.nextLine();
 
         JudgeShopName judgeShopName = new JudgeShopName();
         if (!judgeShopName.judgeShopName(array, shopName)) {
-            System.out.println("你还没有输入你的菜品！");
+            print.printAndNote("你还没有输入你的菜品！", GetName.name+"在"+shopName+"未输入菜品");
         } else {
             for (int i = 0; i < array.size(); ++i) {
                 if (shopName.equals(array.get(i).getShopName())) {
-                    System.out.println(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
+                    print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
+                    print.note(GetName.name+"查找到"+array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
                 }
             }
         }

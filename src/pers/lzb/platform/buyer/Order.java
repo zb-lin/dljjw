@@ -1,9 +1,12 @@
 package pers.lzb.platform.buyer;
 
+import pers.lzb.platform.major.tools.GetName;
+import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.npc.judge.JudgeFood;
 import pers.lzb.platform.npc.judge.JudgeFoodInFor;
 import pers.lzb.platform.npc.trunk.Menu;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,19 +17,20 @@ public class Order {
      * @param array 传入菜单文件数据
      * @author lzb
      */
-    public void order(ArrayList<Menu> array) {
+    public void order(ArrayList<Menu> array) throws IOException {
         float sum = 0;  // 计算应付金额
+        Scanner sc = new Scanner(System.in);
+        Print print = new Print();
         while (true) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("请输入你要的店家！！");
+            print.print("请输入你要的店家！！");
             String shopName = sc.nextLine();
-
-            System.out.println("请输入你要的菜！");
+            print.print("请输入你要的菜！");
             String foodName = sc.nextLine();
 
             JudgeFood judgeFood = new JudgeFood();
             if (!judgeFood.judgeFood(array, shopName, foodName)) {
-                System.out.println("你要的菜不存在！");
+                print.printAndNote("你要的菜不存在！", GetName.name+"在"+shopName+"点的菜"+foodName+"不存在");
+
             }
 
             JudgeFoodInFor judgeFoodInFor = new JudgeFoodInFor();
@@ -43,6 +47,6 @@ public class Order {
             }
             sc.nextLine();
         }
-        System.out.println("谢谢惠顾,一共是" + sum + "元");
+        print.printAndNote("谢谢惠顾,一共是" + sum + "元",GetName.name+"买家点餐完毕,花费"+sum+"元");
     }
 }

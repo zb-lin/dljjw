@@ -1,8 +1,11 @@
 package pers.lzb.platform.npc.change;
 
+import pers.lzb.platform.major.tools.GetName;
+import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.tools.Read;
 import pers.lzb.platform.npc.judge.JudgeFood;
 import pers.lzb.platform.npc.judge.JudgeFoodInFor;
+import pers.lzb.platform.npc.judge.JudgeFoodPrice;
 import pers.lzb.platform.npc.trunk.Menu;
 import pers.lzb.platform.npc.trunk.SetName;
 
@@ -25,18 +28,23 @@ public class ChangeFoodPrice {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("请输入你要修改的价格的菜名！");
+        Print print = new Print();
+        print.print("请输入你要修改的价格的菜名！");
         String foodName = sc.nextLine();
 
         JudgeFood judgeFood = new JudgeFood();
 
         if (!judgeFood.judgeFood(array, shopName, foodName)) {
-            System.out.println("你要修改的菜不存在！");
+            print.printAndNote("你要修改的菜不存在！", GetName.name+"输入的菜"+foodName+"不存在");
         } else {
 
-            System.out.println("请输入新的价格！");
+            print.print("请输入新的价格！");
             String newFoodPrice = sc.nextLine();
 
+            JudgeFoodPrice judgeFoodPrice = new JudgeFoodPrice();
+            if(judgeFoodPrice.judgeFoodPrice(newFoodPrice)){
+                print.printAndNote("输入的价格不为整数",GetName.name+"输入的价格"+newFoodPrice+"不为整数");
+            }
             JudgeFoodInFor judgeFoodInFor = new JudgeFoodInFor();
             for (int i = 0; i < array.size(); ++i) {
                 if (judgeFoodInFor.judgeFoodInFor(array, shopName, foodName, i)) {
@@ -45,7 +53,8 @@ public class ChangeFoodPrice {
                 }
 
             }
-            System.out.println("修改成功！");
+            print.printAndNote("修改成功！",GetName.name+"修改"+shopName+"的"+foodName+"的价格为"+newFoodPrice);
+
         }
     }
 }

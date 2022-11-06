@@ -1,5 +1,7 @@
 package pers.lzb.platform.npc.change;
 
+import pers.lzb.platform.major.tools.GetName;
+import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.tools.Read;
 import pers.lzb.platform.npc.trunk.Menu;
 import pers.lzb.platform.npc.trunk.WriteMenu;
@@ -24,11 +26,13 @@ public class ChangeShopName {
         Menu menu = new Menu();
         WriteMenu writeMenu = new WriteMenu();
         Scanner sc = new Scanner(System.in);
+        Print print = new Print();
 
-        System.out.println("请输入你新的店名！");
+        print.print("请输入你新的店名！");
         String newShopName = sc.nextLine();
+
         if (newShopName.equals(shopName)) {
-            System.out.println("你的新店名与旧店名相同！");
+            print.printAndNote("你的新店名与旧店名相同！", GetName.name+"输入的新店名与原来相同,修改失败");
         } else {
             for (int i = 0; i < array.size(); ++i) {
                 if (shopName.equals(array.get(i).getShopName())) {
@@ -39,7 +43,7 @@ public class ChangeShopName {
                     writeMenu.writeMenu(foodFileName, array);
                 }
             }
-            System.out.println("修改成功！");
+            print.printAndNote("修改成功！",GetName.name+"成功将原店名: "+shopName+"修改为"+"新店名: "+newShopName);
         }
     }
 }
