@@ -9,6 +9,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Npc {
+    /**
+     * 卖家操作交互界面
+     *
+     * @param foodFileName 菜单文件路径
+     * @author lzb
+     */
     public void npc(String foodFileName) throws IOException {
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -17,23 +23,23 @@ public class Npc {
             System.out.println("按其他键退出！");
             int choice = sc.nextInt();
             switch (choice) {
-                case 1:                            //增
+                case 1:  // 增加菜品
                     AddFood addFood = new AddFood();
                     addFood.addFood(foodFileName);
                     break;
-                case 2:                           //删
+                case 2:  // 删除菜品
                     DeleteFood deleteFood = new DeleteFood();
                     deleteFood.deleteFood(foodFileName);
                     break;
-                case 3:                           //查
+                case 3:  // 查找菜品
                     FindFood findFood = new FindFood();
                     findFood.findFood(foodFileName);
                     break;
-                case 4:                            //改
+                case 4:  // 修改菜品信息
                     ChangeFood changeFood = new ChangeFood();
                     changeFood.changeFood(foodFileName);
                     break;
-                default:
+                default:  // 退出
                     System.exit(0);
             }
         }

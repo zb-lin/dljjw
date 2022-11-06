@@ -8,12 +8,18 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class ViewMenu {
+    /**
+     * 看菜单
+     *
+     * @param foodFileName 菜单文件路径
+     * @author lzb
+     */
     public void viewMenu(String foodFileName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array;
-        array = read.read(foodFileName);
+        array = read.read(foodFileName);  // 用数组读取菜单文件信息
 
-        for (int i = 0; i < array.size(); ++i) {
+        for (int i = 0; i < array.size(); ++i) {  // 输出菜单信息
             System.out.println(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
         }
     }

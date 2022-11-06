@@ -1,6 +1,9 @@
 package pers.lzb.platform.npc.trunk;
 
 public class Menu {
+    /**
+     * 菜单信息
+     */
     private String shopName;
     private String food;
     private String price;

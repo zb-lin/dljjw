@@ -8,6 +8,12 @@ import java.util.Scanner;
 
 
 public class SignUp {
+    /**
+     * 注册交互界面
+     *
+     * @param fileName 账号文件路径
+     * @author lzb
+     */
     public void signUp(String fileName) throws IOException {
         ArrayList<Account> array = new ArrayList<>();
         ReadFile readFile = new ReadFile();

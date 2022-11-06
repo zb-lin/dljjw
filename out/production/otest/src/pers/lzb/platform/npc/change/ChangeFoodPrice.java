@@ -2,6 +2,7 @@ package pers.lzb.platform.npc.change;
 
 import pers.lzb.platform.major.tools.Read;
 import pers.lzb.platform.npc.judge.JudgeFood;
+import pers.lzb.platform.npc.judge.JudgeFoodInFor;
 import pers.lzb.platform.npc.trunk.Menu;
 import pers.lzb.platform.npc.trunk.SetName;
 
@@ -10,6 +11,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChangeFoodPrice {
+    /**
+     * 修改价格
+     *
+     * @param foodFileName 菜单文件路径
+     * @param shopName     店名
+     * @author lzb
+     */
     public void changeFoodPrice(String foodFileName, String shopName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array;
@@ -29,8 +37,9 @@ public class ChangeFoodPrice {
             System.out.println("请输入新的价格！");
             String newFoodPrice = sc.nextLine();
 
+            JudgeFoodInFor judgeFoodInFor = new JudgeFoodInFor();
             for (int i = 0; i < array.size(); ++i) {
-                if (judgeFood.judgeFoodInFor(array, shopName, foodName, i)) {
+                if (judgeFoodInFor.judgeFoodInFor(array, shopName, foodName, i)) {
                     SetName setName = new SetName();
                     setName.setName(array, foodFileName, shopName, foodName, newFoodPrice, i);
                 }

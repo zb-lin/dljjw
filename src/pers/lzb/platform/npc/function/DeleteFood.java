@@ -1,7 +1,7 @@
 package pers.lzb.platform.npc.function;
 
 import pers.lzb.platform.major.tools.Read;
-import pers.lzb.platform.npc.judge.JudgeFood;
+import pers.lzb.platform.npc.judge.JudgeFoodInFor;
 import pers.lzb.platform.npc.judge.JudgeShopName;
 import pers.lzb.platform.npc.trunk.Menu;
 import pers.lzb.platform.npc.trunk.WriteMenu;
@@ -10,6 +10,12 @@ import java.io.*;
 import java.util.*;
 
 public class DeleteFood {
+    /**
+     * 删除菜品
+     *
+     * @param foodFileName 菜单文件路径
+     * @author lzb
+     */
     public void deleteFood(String foodFileName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array;
@@ -19,7 +25,7 @@ public class DeleteFood {
 
         System.out.println("请输入你的店名！");
         String shopName = sc.nextLine();
-        boolean flag = true;
+
         JudgeShopName judgeShopName = new JudgeShopName();
         if (!judgeShopName.judgeShopName(array, shopName)) {
             System.out.println("未找到该店铺信息！");
@@ -30,7 +36,7 @@ public class DeleteFood {
         String foodName = sc.nextLine();
 
         for (int i = 0; i < array.size(); ++i) {
-            JudgeFood judgeFoodInFor = new JudgeFood();
+            JudgeFoodInFor judgeFoodInFor = new JudgeFoodInFor();
             if (judgeFoodInFor.judgeFoodInFor(array, shopName, foodName, i)) {
                 array.remove(i);
                 WriteMenu writeMenu = new WriteMenu();

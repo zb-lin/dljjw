@@ -10,6 +10,12 @@ import java.io.*;
 import java.util.Scanner;
 
 public class ChangeFood {
+    /**
+     * 改变菜单信息的方法的入口
+     *
+     * @param foodFileName 菜单文件路径
+     * @author lzb
+     */
     public void changeFood(String foodFileName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array;

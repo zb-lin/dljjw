@@ -9,6 +9,12 @@ import java.io.*;
 import java.util.*;
 
 public class AddFood {
+    /**
+     * 添加菜品
+     *
+     * @param foodFileName 菜单文件路径
+     * @author lzb
+     */
     public void addFood(String foodFileName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array = read.read(foodFileName);
@@ -27,7 +33,13 @@ public class AddFood {
         }
         System.out.println("请输入菜的价格！");
         String price = sc.nextLine();
-
+        for(int i= 0;i<price.length();++i){
+            int ch = price.charAt(i);
+            if(ch<48||ch>57){
+                System.out.println("输入价格不为整数!");
+                return;
+            }
+        }
         Set set = new Set();
         set.set(array, foodFileName, shopName, foodName, price);
         System.out.println("您的菜品已添加成功！！");

@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChangeShopName {
+    /**
+     * 改变店名
+     *
+     * @param foodFileName 菜单文件路径
+     * @param shopName     店名
+     * @author lzb
+     */
     public void changeShopName(String foodFileName, String shopName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array;
@@ -25,7 +32,7 @@ public class ChangeShopName {
         } else {
             for (int i = 0; i < array.size(); ++i) {
                 if (shopName.equals(array.get(i).getShopName())) {
-                    menu.setShopName(newShopName);
+                    menu.setShopName(newShopName);  // 输入新店名
                     menu.setFood(array.get(i).getFood());
                     menu.setPrice(array.get(i).getPrice());
                     array.set(i, menu);

@@ -10,6 +10,12 @@ import java.util.*;
 
 //查询菜品
 public class FindFood {
+    /**
+     * 查询菜名
+     *
+     * @param foodFileName 菜单文件路径
+     * @author lzb
+     */
 
     public void findFood(String foodFileName) throws IOException {
         Read read = new Read();

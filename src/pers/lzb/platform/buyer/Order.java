@@ -1,27 +1,23 @@
 package pers.lzb.platform.buyer;
 
-import pers.lzb.platform.major.tools.Read;
-import pers.lzb.platform.npc.trunk.Menu;
 import pers.lzb.platform.npc.judge.JudgeFood;
+import pers.lzb.platform.npc.judge.JudgeFoodInFor;
+import pers.lzb.platform.npc.trunk.Menu;
 
-import java.io.IOException;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Scanner;
 
-
 public class Order {
-    public void order(String foodFileName) throws IOException {
-        Read read = new Read();
-        ArrayList<Menu> array;
-        array = read.read(foodFileName);
-        Calendar nowTime = Calendar.getInstance();
-        Scanner sc = new Scanner(System.in);
-        float sum = 0;
-
+    /**
+     * 点餐交互界面
+     *
+     * @param array 传入菜单文件数据
+     * @author lzb
+     */
+    public void order(ArrayList<Menu> array) {
+        float sum = 0;  // 计算应付金额
         while (true) {
+            Scanner sc = new Scanner(System.in);
             System.out.println("请输入你要的店家！！");
             String shopName = sc.nextLine();
 
@@ -33,8 +29,9 @@ public class Order {
                 System.out.println("你要的菜不存在！");
             }
 
-            for (int i = 0; i < array.size(); ++i) {
-                if (judgeFood.judgeFoodInFor(array, shopName, foodName, i)) {
+            JudgeFoodInFor judgeFoodInFor = new JudgeFoodInFor();
+            for (int i = 0; i < array.size(); ++i) {  // 计算总金额
+                if (judgeFoodInFor.judgeFoodInFor(array, shopName, foodName, i)) {
                     sum = sum + Float.parseFloat(array.get(i).getPrice());
                 }
             }
@@ -47,25 +44,5 @@ public class Order {
             sc.nextLine();
         }
         System.out.println("谢谢惠顾,一共是" + sum + "元");
-        System.out.println("请填写您的外卖地址！");
-
-        String address = sc.nextLine();
-        if (address.equals("印度") || address.equals("india") || address.equals("India")) {
-            System.out.println("商家正在备餐！");
-            nowTime.add(Calendar.MINUTE, 30);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            System.out.println("预计送达时间:" + sdf.format(nowTime.getTime()));
-        } else {
-            System.out.println("商家正在备餐！");
-            nowTime.add(Calendar.YEAR, 1);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            System.out.println("预计送达时间:" + sdf.format(nowTime.getTime()));
-            System.out.println("感觉太晚就按:1启用飞机运输！！");
-            int num = sc.nextInt();
-            if (num == 1) {
-                System.out.println("无飞机，等明年去吧！");
-            }
-            sc.nextLine();
-        }
     }
 }
