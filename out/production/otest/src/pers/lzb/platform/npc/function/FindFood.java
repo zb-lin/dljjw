@@ -1,16 +1,17 @@
 package pers.lzb.platform.npc.function;
 
 import pers.lzb.platform.major.tools.Read;
-import pers.lzb.platform.npc.change.ChangeFoodChoice;
 import pers.lzb.platform.npc.judge.JudgeShopName;
 import pers.lzb.platform.npc.trunk.Menu;
 
-import java.util.ArrayList;
-import java.io.*;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
 
-public class ChangeFood {
-    public void changeFood(String foodFileName) throws IOException {
+
+//查询菜品
+public class FindFood {
+
+    public void findFood(String foodFileName) throws IOException {
         Read read = new Read();
         ArrayList<Menu> array;
         array = read.read(foodFileName);
@@ -20,12 +21,14 @@ public class ChangeFood {
         String shopName = sc.nextLine();
 
         JudgeShopName judgeShopName = new JudgeShopName();
-
         if (!judgeShopName.judgeShopName(array, shopName)) {
             System.out.println("你还没有输入你的菜品！");
         } else {
-            ChangeFoodChoice changeFoodChoice = new ChangeFoodChoice();
-            changeFoodChoice.changeFoodChoice(foodFileName, shopName);
+            for (int i = 0; i < array.size(); ++i) {
+                if (shopName.equals(array.get(i).getShopName())) {
+                    System.out.println(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
+                }
+            }
         }
     }
 }
