@@ -24,8 +24,8 @@ public class Main {
         Start start = new Start();  // 进入选择注册或登录
         start.start(fileName, foodFileName);
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
+
+
+

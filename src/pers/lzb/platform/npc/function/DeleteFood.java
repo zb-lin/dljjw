@@ -50,8 +50,6 @@ public class DeleteFood {
         }
         print.printAndNote("未找到该菜品!", GetName.name + " 还未添加菜品 " + foodName);
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
+

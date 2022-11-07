@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
 package pers.lzb.platform.buyer;
 
 import pers.lzb.platform.major.tools.GetName;
@@ -43,7 +40,3 @@ public class Customer {
         print.note("点餐完毕");
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f

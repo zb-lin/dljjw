@@ -57,8 +57,6 @@ public class ChangeFoodPrice {
 
         }
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
+

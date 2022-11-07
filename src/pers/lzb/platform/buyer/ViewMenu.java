@@ -1,9 +1,6 @@
 package pers.lzb.platform.buyer;
 
-<<<<<<< HEAD
-=======
-import pers.lzb.platform.major.tools.GetName;
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
+
 import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.tools.Read;
 import pers.lzb.platform.npc.trunk.Menu;
@@ -29,8 +26,8 @@ public class ViewMenu {
             print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice() + "元");
         }
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
+
+
+
