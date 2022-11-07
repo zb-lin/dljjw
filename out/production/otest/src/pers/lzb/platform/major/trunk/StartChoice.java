@@ -29,7 +29,7 @@ public class StartChoice {
                 startLogin.startLogin(fileName, foodFileName);
                 break;
             default:  // 退出
-                print.note(GetName.name+" 退出");
+                print.note(GetName.name + " 退出");
                 print.print("\n");
                 System.exit(0);
         }

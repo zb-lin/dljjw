@@ -22,8 +22,8 @@ public class JudgePassword {
                 if (password.equals(array.get(i).getPassword())) {
                     GetName getName = new GetName();
                     getName.getName(username);
-                    print.printAndNote("密码正确！", GetName.name+"输入密码正确！");
-                    print.printAndNote("登录成功！", GetName.name+"登录成功！");
+                    print.printAndNote("密码正确！", GetName.name + "输入密码正确！");
+                    print.printAndNote("登录成功！", GetName.name + "登录成功！");
                     return true;
                 }
                 print.printAndNote("密码错误！", "用户输入密码错误！");

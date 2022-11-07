@@ -5,6 +5,7 @@ import pers.lzb.platform.major.trunk.Account;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 
 public class SignUp {
@@ -29,14 +30,23 @@ public class SignUp {
             }
         }
         print.print("请输入你的密码");
+        print.print("你的密码必须同时包括数字和字母且大于3位");
         String password = sc.nextLine();
+        String pattern = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{3,1000}$";  // 正则表达式
 
-        Account account = new Account();
-        account.setUsername(username);
-        account.setPassword(password);
-        array.add(account);
-        WriteFile writeFile = new WriteFile();
-        writeFile.writeFile(fileName, array);
-        print.printAndNote("注册成功!", "用户注册成功,账号为 " + username + ",密码为 " + password);
+        boolean flag = Pattern.matches(pattern, password);  // 判断password是否符合要求
+        if (!flag) {
+            print.print("你的密码必须同时包括数字和字母且大于3位");
+        } else {
+            Account account = new Account();
+            account.setUsername(username);
+            account.setPassword(password);
+            array.add(account);
+            WriteFile writeFile = new WriteFile();
+            writeFile.writeFile(fileName, array);
+            print.printAndNote("注册成功!", "用户注册成功,账号为 " + username + ",密码为 " + password);
+        }
+
+
     }
 }
