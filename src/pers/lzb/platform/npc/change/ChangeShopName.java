@@ -32,7 +32,7 @@ public class ChangeShopName {
         String newShopName = sc.nextLine();
 
         if (newShopName.equals(shopName)) {
-            print.printAndNote("你的新店名与旧店名相同！", GetName.name+" 输入的新店名与原来相同,修改失败");
+            print.printAndNote("你的新店名与旧店名相同！", GetName.name + " 输入的新店名与原来相同,修改失败");
         } else {
             for (int i = 0; i < array.size(); ++i) {
                 if (shopName.equals(array.get(i).getShopName())) {
@@ -43,7 +43,7 @@ public class ChangeShopName {
                     writeMenu.writeMenu(foodFileName, array);
                 }
             }
-            print.printAndNote("修改成功！",GetName.name+" 成功将原店名: "+shopName+" 修改为"+"新店名: " +newShopName);
+            print.printAndNote("修改成功！", GetName.name + " 成功将原店名: " + shopName + " 修改为" + "新店名: " + newShopName);
         }
     }
 }

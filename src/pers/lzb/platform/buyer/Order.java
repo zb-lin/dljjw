@@ -29,7 +29,7 @@ public class Order {
 
             JudgeFood judgeFood = new JudgeFood();
             if (!judgeFood.judgeFood(array, shopName, foodName)) {
-                print.printAndNote("你要的菜不存在！", GetName.name+" 在 "+shopName+" 点的菜 "+foodName+" 不存在");
+                print.printAndNote("你要的菜不存在！", GetName.name + " 在 " + shopName + " 点的菜 " + foodName + " 不存在");
 
             }
 
@@ -37,7 +37,7 @@ public class Order {
             for (int i = 0; i < array.size(); ++i) {  // 计算总金额
                 if (judgeFoodInFor.judgeFoodInFor(array, shopName, foodName, i)) {
                     sum = sum + Float.parseFloat(array.get(i).getPrice());
-                    print.note(GetName.name+" 在 "+shopName+" 点了 "+foodName);
+                    print.note(GetName.name + " 在 " + shopName + " 点了 " + foodName);
                 }
             }
             System.out.println("如果你点餐完毕，请按:1");
@@ -48,10 +48,10 @@ public class Order {
             }
             sc.nextLine();
         }
-        if(sum == 0){
-            print.printAndNote("欢迎下次再来",GetName.name+" 没有点餐就退出");
-        }else{
-            print.printAndNote("谢谢惠顾,一共是" + sum + "元",GetName.name+" 点餐完毕,花费 "+sum+" 元");
+        if (sum == 0) {
+            print.printAndNote("欢迎下次再来", GetName.name + " 没有点餐就退出");
+        } else {
+            print.printAndNote("谢谢惠顾,一共是" + sum + "元", GetName.name + " 点餐完毕,花费 " + sum + " 元");
         }
 
         print.note("\n");

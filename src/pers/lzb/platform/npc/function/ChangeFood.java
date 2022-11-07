@@ -31,7 +31,7 @@ public class ChangeFood {
         JudgeShopName judgeShopName = new JudgeShopName();
 
         if (!judgeShopName.judgeShopName(array, shopName)) {
-            print.printAndNote("你还没有输入你的菜品！", GetName.name+" 还未在 "+shopName+" 输入任何菜品");
+            print.printAndNote("你还没有输入你的菜品！", GetName.name + " 还未在 " + shopName + " 输入任何菜品");
         } else {
             ChangeFoodChoice changeFoodChoice = new ChangeFoodChoice();
             changeFoodChoice.changeFoodChoice(foodFileName, shopName);

@@ -46,7 +46,7 @@ public class AddFood {
 
         Set set = new Set();
         set.set(array, foodFileName, shopName, foodName, price);
-        print.printAndNote("您的菜品已添加成功！！", GetName.name + " 在 " + shopName + " 添加菜品 " + foodName + " 成功," + "价格为 " + price+"元");
+        print.printAndNote("您的菜品已添加成功！！", GetName.name + " 在 " + shopName + " 添加菜品 " + foodName + " 成功," + "价格为 " + price + "元");
         print.print("\n");
     }
 
