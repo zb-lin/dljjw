@@ -46,4 +46,8 @@ public class ChangeShopName {
             print.printAndNote("修改成功！", GetName.name + " 成功将原店名: " + shopName + " 修改为" + "新店名: " + newShopName);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f

@@ -35,4 +35,8 @@ public class FoodDelivery {
             sc.nextLine();  // 吞掉一个回车,避免后续地址输入回车
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9ca00c1522d237e8c1b7547038182fa02ddc376f
