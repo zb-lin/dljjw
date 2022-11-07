@@ -29,7 +29,7 @@ public class Login {
         print.print("请输入密码");
         String password = sc.nextLine();
 
-        print.note(username + "登录");
+        print.note(username + "开始登录");
         JudgePassword judge = new JudgePassword();
 
         return judge.judgePassword(array, username, password);

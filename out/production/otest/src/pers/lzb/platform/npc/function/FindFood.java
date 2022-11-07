@@ -31,12 +31,12 @@ public class FindFood {
 
         JudgeShopName judgeShopName = new JudgeShopName();
         if (!judgeShopName.judgeShopName(array, shopName)) {
-            print.printAndNote("你还没有输入你的菜品！", GetName.name+"在"+shopName+"未输入菜品");
+            print.printAndNote("你还没有添加任何菜", GetName.name+" 在 "+shopName+" 未输入菜品");
         } else {
             for (int i = 0; i < array.size(); ++i) {
                 if (shopName.equals(array.get(i).getShopName())) {
-                    print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
-                    print.note(GetName.name+"查找到"+array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
+                    print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice()+"元");
+                    print.note(GetName.name+" 查找到 "+array.get(i).getShopName() + " 的菜品 " + array.get(i).getFood() + ",价格为 " + array.get(i).getPrice()+"元");
                 }
             }
         }

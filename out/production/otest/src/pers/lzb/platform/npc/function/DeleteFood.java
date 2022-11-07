@@ -31,7 +31,7 @@ public class DeleteFood {
 
         JudgeShopName judgeShopName = new JudgeShopName();
         if (!judgeShopName.judgeShopName(array, shopName)) {
-            print.printAndNote("未找到该店铺信息！", GetName.name+"输入不存在的店铺");
+            print.printAndNote("未找到该店铺信息！", GetName.name+" 输入不存在的店铺");
             return;
         }
 
@@ -44,10 +44,10 @@ public class DeleteFood {
                 array.remove(i);
                 WriteMenu writeMenu = new WriteMenu();
                 writeMenu.writeMenu(foodFileName, array);
-                print.printAndNote("删除成功！",GetName.name+"删除"+shopName+"的"+foodName);
+                print.printAndNote("删除成功！",GetName.name+" 删除 "+shopName+" 的 "+foodName);
                 return;
             }
         }
-        print.printAndNote("未找到该菜品!",GetName.name+"未输入"+foodName);
+        print.printAndNote("未找到该菜品!",GetName.name+" 还未添加菜品 "+foodName);
     }
 }

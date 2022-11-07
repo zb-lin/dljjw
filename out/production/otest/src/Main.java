@@ -17,6 +17,7 @@ public class Main {
         String foodFileName = "foodData.txt";  // 文件路径
 
         Print print = new Print();
+        print.note("\n");
 
         print.print("欢迎来到庸叔的印度npc国际外卖平台！！");
         print.note("开始!");

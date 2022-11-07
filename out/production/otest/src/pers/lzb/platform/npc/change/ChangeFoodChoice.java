@@ -21,20 +21,22 @@ public class ChangeFoodChoice {
         int num = sc.nextInt();
         switch (num) {
             case 1:
-                print.note(GetName.name+"修改"+shopName+"的店名");
+                print.note(GetName.name+" 修改 "+shopName+" 的店名");
                 ChangeShopName changeShopName = new ChangeShopName();
                 changeShopName.changeShopName(foodFileName, shopName);
                 break;
             case 2:
+                print.note(GetName.name+" 修改菜品");
                 ChangeFoodName changeFoodName = new ChangeFoodName();
                 changeFoodName.changeFoodName(foodFileName, shopName);
                 break;
             case 3:
+                print.note(GetName.name+" 修改价格");
                 ChangeFoodPrice changeFoodPrice = new ChangeFoodPrice();
                 changeFoodPrice.changeFoodPrice(foodFileName, shopName);
                 break;
             default:
-                print.printAndNote("输入无效！",GetName.name+"在修改信息操作选择中输入无效数字");
+                print.printAndNote("输入无效！",GetName.name+" 在修改信息操作选择中输入无效数字");
                 break;
         }
     }

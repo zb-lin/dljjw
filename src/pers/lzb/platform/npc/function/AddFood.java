@@ -32,7 +32,7 @@ public class AddFood {
 
         JudgeFood judgeFood = new JudgeFood();
         if (judgeFood.judgeFood(array, shopName, foodName)) {
-            print.printAndNote("你已经添加过该菜品！", GetName.name+"已经添加过"+foodName+",添加失败");
+            print.printAndNote("你已经添加过该菜品！", GetName.name + " 已经添加过 " + foodName + ",添加失败");
             return;
         }
         print.print("请输入菜的价格！");
@@ -40,15 +40,14 @@ public class AddFood {
 
         JudgeFoodPrice judgeFoodPrice = new JudgeFoodPrice();
         if (judgeFoodPrice.judgeFoodPrice(price)) {
-            print.printAndNote("输入价格不为整数!",GetName.name+"输入的价格"+price+"不为整数,添加失败");
+            print.printAndNote("输入价格不为整数!", GetName.name + " 输入的价格 " + price + " 不为整数,添加失败");
             return;
         }
 
         Set set = new Set();
         set.set(array, foodFileName, shopName, foodName, price);
-        print.printAndNote("您的菜品已添加成功！！",GetName.name+"在"+shopName+"的菜品"+foodName+"添加成功,"+"价格为"+price);
-        System.out.println();
-
+        print.printAndNote("您的菜品已添加成功！！", GetName.name + " 在 " + shopName + " 添加菜品 " + foodName + " 成功," + "价格为 " + price+"元");
+        print.print("\n");
     }
 
 }

@@ -35,7 +35,7 @@ public class ChangeFoodPrice {
         JudgeFood judgeFood = new JudgeFood();
 
         if (!judgeFood.judgeFood(array, shopName, foodName)) {
-            print.printAndNote("你要修改的菜不存在！", GetName.name+"输入的菜"+foodName+"不存在");
+            print.printAndNote("你要修改的菜不存在！", GetName.name+" 输入的菜 "+foodName+" 不存在");
         } else {
 
             print.print("请输入新的价格！");
@@ -43,7 +43,7 @@ public class ChangeFoodPrice {
 
             JudgeFoodPrice judgeFoodPrice = new JudgeFoodPrice();
             if(judgeFoodPrice.judgeFoodPrice(newFoodPrice)){
-                print.printAndNote("输入的价格不为整数",GetName.name+"输入的价格"+newFoodPrice+"不为整数");
+                print.printAndNote("输入的价格不为整数",GetName.name+" 输入的价格 "+newFoodPrice+" 不为整数");
             }
             JudgeFoodInFor judgeFoodInFor = new JudgeFoodInFor();
             for (int i = 0; i < array.size(); ++i) {
@@ -53,7 +53,7 @@ public class ChangeFoodPrice {
                 }
 
             }
-            print.printAndNote("修改成功！",GetName.name+"修改"+shopName+"的"+foodName+"的价格为"+newFoodPrice);
+            print.printAndNote("修改成功！",GetName.name+" 修改 "+shopName+" 的 "+foodName+" 的价格为 "+newFoodPrice+"元");
 
         }
     }

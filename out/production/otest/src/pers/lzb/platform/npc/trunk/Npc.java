@@ -27,22 +27,26 @@ public class Npc {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:  // 增加菜品
-                    print.note(GetName.name+" 增加菜品");
+                    print.note("\n");
+                    print.note(GetName.name+" 进行增加菜品操作");
                     AddFood addFood = new AddFood();
                     addFood.addFood(foodFileName);
                     break;
                 case 2:  // 删除菜品
-                    print.note(GetName.name+" 删除菜品");
+                    print.note("\n");
+                    print.note(GetName.name+" 进行删除菜品操作");
                     DeleteFood deleteFood = new DeleteFood();
                     deleteFood.deleteFood(foodFileName);
                     break;
                 case 3:  // 查找菜品
-                    print.note(GetName.name+" 查找菜品");
+                    print.note("\n");
+                    print.note(GetName.name+" 进行查找菜品操作");
                     FindFood findFood = new FindFood();
                     findFood.findFood(foodFileName);
                     break;
                 case 4:  // 修改菜品信息
-                    print.note(GetName.name+" 修改菜品信息");
+                    print.note("\n");
+                    print.note(GetName.name+" 进行修改菜品信息操作");
                     ChangeFood changeFood = new ChangeFood();
                     changeFood.changeFood(foodFileName);
                     break;

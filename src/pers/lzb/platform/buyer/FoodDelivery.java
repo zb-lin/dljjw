@@ -21,13 +21,13 @@ public class FoodDelivery {
 
         String address = sc.nextLine();
         if (address.equals("印度") || address.equals("india") || address.equals("India")) {  // 送到本国比较快
-            print.note("商家来自" + address);
+            print.note("买家来自 " + address);
             print.print("商家正在备餐！");
             nowTime.add(Calendar.MINUTE, 30);  // 当前时间加30分钟
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  // 转换时间格式
             print.print("预计送达时间:" + sdf.format(nowTime.getTime()));
         } else {  // 送到外国比较慢
-            print.note("商家来自" + address);
+            print.note("买家来自 " + address);
             print.print("商家正在备餐！");
             nowTime.add(Calendar.YEAR, 1);  // 当前时间加1小时
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  // 转换时间格式

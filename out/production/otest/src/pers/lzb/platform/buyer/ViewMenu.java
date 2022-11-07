@@ -23,7 +23,7 @@ public class ViewMenu {
         Print print = new Print();
 
         for (int i = 0; i < array.size(); ++i) {  // 输出菜单信息
-            print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice());
+            print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice()+"元");
         }
     }
 }

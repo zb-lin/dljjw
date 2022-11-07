@@ -27,17 +27,19 @@ public class StartLogin {
             int num = sc.nextInt();
 
             if (num == 1) {  // 卖家
-                print.note(GetName.name+"npc操作");
+                print.note("\n");
+                print.note(GetName.name+" 进入npc平台");
                 Npc npc = new Npc();
                 npc.npc(foodFileName);
             } else if (num == 2) {  // 买家
-                print.note(GetName.name+"买家操作");
+                print.note("\n");
+                print.note(GetName.name+" 进入买家平台");
                 Customer customer = new Customer();
                 customer.customer(foodFileName);
             }
 
         } else {  // 登录失败
-            print.printAndNote("登录失败！",GetName.name+"登录失败");
+            print.printAndNote("登录失败！","登录失败");
         }
     }
 }

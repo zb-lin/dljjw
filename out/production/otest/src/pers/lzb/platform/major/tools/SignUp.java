@@ -24,7 +24,7 @@ public class SignUp {
         String username = sc.nextLine();
         for (int i = 0; i < array.size(); ++i) {
             if (array.get(i).getUsername().equals(username)) {
-                print.printAndNote("你已经注册！", username + "已注册");
+                print.printAndNote("你已经注册！", "错误:用户输入的用户名" + username + "已注册");
                 return;
             }
         }
@@ -37,6 +37,6 @@ public class SignUp {
         array.add(account);
         WriteFile writeFile = new WriteFile();
         writeFile.writeFile(fileName, array);
-        print.printAndNote("注册成功!", "注册成功,账号密码为" + username + " " + password);
+        print.printAndNote("注册成功!", "用户注册成功,账号为 " + username + ",密码为 " + password);
     }
 }
