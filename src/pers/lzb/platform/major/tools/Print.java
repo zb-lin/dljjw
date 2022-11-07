@@ -12,10 +12,16 @@ public class Print {
      */
 
     public void print(String str) {
+        /**
+         * 普通输出
+         */
         System.out.println(str);
     }
 
     public void printAndNote(String string, String str) throws IOException {
+        /**
+         * 输出并计入日记
+         */
         System.out.println(string);
         FileWriter fw = new FileWriter("note.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
@@ -26,6 +32,9 @@ public class Print {
     }
 
     public void note(String str) throws IOException {
+        /**
+         * 记日记不输出
+         */
         FileWriter fw = new FileWriter("note.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.append(str);
