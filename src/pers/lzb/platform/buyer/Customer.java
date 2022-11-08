@@ -27,8 +27,11 @@ public class Customer {
                 ViewMenu viewMenu = new ViewMenu();
                 viewMenu.viewMenu(foodFileName);
             } else if (num == 2) {
-                SearchFood searchFood = new SearchFood();
-                searchFood.searchFood();
+//                SearchFood searchFood = new SearchFood();
+//                searchFood.searchFood();
+//                print.print("");
+                SearchMultipleFields searchMultipleFields = new SearchMultipleFields();
+                searchMultipleFields.searchMultipleFields();
             } else {
                 break;
             }

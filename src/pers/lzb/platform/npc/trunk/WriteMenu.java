@@ -17,7 +17,7 @@ public class WriteMenu {
         BufferedWriter bw = new BufferedWriter(new FileWriter(foodFileName));
         for (int i = 0; i < array.size(); ++i) {
             Menu menu = array.get(i);
-            bw.write(menu.getShopName() + "阿斯达多所大所" + menu.getFood() + "阿斯达多所大所" + menu.getPrice() // 用不常用到的字符串分隔
+            bw.write(menu.getShopName() + "!@#%#@!#@#@" + menu.getFood() + "!@#%#@!#@#@" + menu.getPrice() // 用不常用到的字符串分隔
             );
             bw.newLine();
             bw.flush();

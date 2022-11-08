@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class SearchFood {
     /**
-     * 用于买家的搜索操作
+     * 用于买家的单字段精确搜索操作
      *
      * @author lzb
      */
@@ -34,7 +34,7 @@ public class SearchFood {
                     for (int i = 0; i < strings.length; ++i) {
                         System.out.print(strings[i] + " ");
                     }
-                    print.print("");  // 吞掉换行符
+                    print.print("");  // 换行
                 }
 
             }
