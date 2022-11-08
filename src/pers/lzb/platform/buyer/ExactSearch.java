@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import java.util.Scanner;
 
-public class SearchFood {
+public class ExactSearch {
     /**
      * 用于买家的单字段精确搜索操作
      *

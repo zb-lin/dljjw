@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class SearchMultipleFields {
+public class FuzzySearch {
     /**
      * 实现对菜单的单字段模糊搜索
      *
      * @author lzb
      */
-    public void searchMultipleFields() throws IOException {
+    public void fuzzySearch() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("foodData.txt"));
         Scanner sc = new Scanner(System.in);
         Print print = new Print();

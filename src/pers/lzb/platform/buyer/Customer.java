@@ -27,11 +27,11 @@ public class Customer {
                 ViewMenu viewMenu = new ViewMenu();
                 viewMenu.viewMenu(foodFileName);
             } else if (num == 2) {
-//                SearchFood searchFood = new SearchFood();
+//                SearchFood searchFood = new SearchFood();  // 单字符串精确搜索
 //                searchFood.searchFood();
 //                print.print("");
-                SearchMultipleFields searchMultipleFields = new SearchMultipleFields();
-                searchMultipleFields.searchMultipleFields();
+                FuzzySearch fuzzySearch = new FuzzySearch();
+                fuzzySearch.fuzzySearch();
             } else {
                 break;
             }
