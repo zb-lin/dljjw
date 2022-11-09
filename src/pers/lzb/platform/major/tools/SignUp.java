@@ -3,6 +3,8 @@ package pers.lzb.platform.major.tools;
 import pers.lzb.platform.major.trunk.Account;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -15,7 +17,7 @@ public class SignUp {
      * @param fileName 账号文件路径
      * @author lzb
      */
-    public void signUp(String fileName) throws IOException {
+    public void signUp(String fileName) throws IOException, SQLException {
         ArrayList<Account> array = new ArrayList<>();
         ReadFile readFile = new ReadFile();
         readFile.readFile(fileName, array);
@@ -45,6 +47,7 @@ public class SignUp {
             WriteFile writeFile = new WriteFile();
             writeFile.writeFile(fileName, array);
             print.printAndNote("注册成功!", "用户注册成功,账号为 " + username + ",密码为 " + password);
+//            Test.connect(username,password);  // 数据库测试
         }
 
 

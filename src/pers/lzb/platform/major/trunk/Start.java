@@ -4,6 +4,7 @@ package pers.lzb.platform.major.trunk;
 import pers.lzb.platform.major.tools.Print;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
@@ -15,7 +16,7 @@ public class Start {
      * @param foodFileName 菜单文件路径
      * @author lzb
      */
-    public void start(String fileName, String foodFileName) throws IOException {
+    public void start(String fileName, String foodFileName) throws IOException, SQLException {
         Print print = new Print();
         while (true) {
             print.print("如果你还没有注册,请按: 1");

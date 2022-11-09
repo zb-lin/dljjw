@@ -3,6 +3,7 @@ import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.trunk.Start;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class Main {
@@ -12,7 +13,7 @@ public class Main {
      * @author lzb
      */
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         String fileName = "data.txt";  // 文件路径
         String foodFileName = "foodData.txt";  // 文件路径
 

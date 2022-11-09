@@ -5,6 +5,7 @@ import pers.lzb.platform.major.tools.Print;
 import pers.lzb.platform.major.tools.SignUp;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class StartChoice {
     /**
@@ -15,7 +16,7 @@ public class StartChoice {
      * @param number       用户选择 1: 注册  2: 登录  3: 退出
      * @author lzb
      */
-    public void startChoice(String fileName, String foodFileName, int number) throws IOException {
+    public void startChoice(String fileName, String foodFileName, int number) throws IOException, SQLException {
         Print print = new Print();
         switch (number) {
             case 1:  // 注册
