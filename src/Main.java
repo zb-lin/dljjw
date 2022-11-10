@@ -1,5 +1,5 @@
 
-import pers.lzb.platform.major.tools.Print;
+import pers.lzb.platform.major.tools.io.Print;
 import pers.lzb.platform.major.trunk.Start;
 
 import java.io.IOException;

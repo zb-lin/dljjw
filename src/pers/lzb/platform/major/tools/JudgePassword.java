@@ -1,5 +1,7 @@
 package pers.lzb.platform.major.tools;
 
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
 import pers.lzb.platform.major.trunk.Account;
 
 import java.io.IOException;

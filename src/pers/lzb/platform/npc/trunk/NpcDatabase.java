@@ -1,4 +1,4 @@
-package pers.lzb.platform.major.tools;
+package pers.lzb.platform.npc.trunk;
 
 import pers.lzb.platform.major.tools.io.Print;
 import pers.lzb.platform.major.tools.io.WriteNum;
@@ -6,18 +6,11 @@ import pers.lzb.platform.major.tools.io.WriteNum;
 import java.io.IOException;
 import java.sql.*;
 
-public class DatabaseOperation {
-    /**
-     * 通过MySQL进行对账户信息的操作
-     *
-     * @param num      传入不同数字选择操作
-     * @param id       账户id
-     * @param username 用户名
-     * @param password 密码
-     * @author lzb
-     */
 
-    public static void connect(int num, String id, String username, String password) throws IOException {
+public class NpcDatabase {
+
+
+    public static void npcDatabase(int num, String id, String shopName, String food, String price) throws IOException {
         String driverName = "com.mysql.cj.jdbc.Driver";
 
         String dbURL = "jdbc:mysql://localhost:3306/test?&useSSL=false&serverTimezone=Asia/Shanghai";
@@ -42,18 +35,16 @@ public class DatabaseOperation {
 
 
             if (num == 1) {
-                statement.executeUpdate("insert  into account value ('" + id + "','" + username + "','" + password + "')");
-                WriteNum writeNum = new WriteNum();  // 将主键加一
-                writeNum.writeNum();
-
-
+                statement.executeUpdate("insert  into npc value ('"+id+"','" + shopName + "','" + food + "','" + price + "')");
+              WriteNum writeNum = new WriteNum();
+              writeNum.writeNum();
             } else if (num == 2) {
-                statement.executeUpdate("delete  from  account where idAccount='" + id + "'");  // 删除
-                print.printAndNote("删除成功", "id为: " + id + " 的账户成功被注销");
+                statement.executeUpdate("delete  from  npc where id='" + id + "'");  // 删除
+                print.printAndNote("删除成功", "id为: " + id + " 的菜成功被删除");
 
             } else if (num == 3) {
                 // 定义数据库查询语句：查询account表中的Name、password两列数据
-                String sql = "SELECT idAccount,Name,password FROM test.account";
+                String sql = "SELECT id,shopName,food,price FROM test.npc";
                 // 执行查询语句
                 ResultSet rSet = statement.executeQuery(sql);
 
@@ -61,20 +52,22 @@ public class DatabaseOperation {
                 while (rSet.next()) {
 
                     // 这里getString()方法中的参数对应的是数据库表中的列名
-                    String getIdAccount = rSet.getString("idAccount");
-                    String getName = rSet.getString("Name");
-                    String getPassword = rSet.getString("password");
+                    String getId = rSet.getString("id");
+                    String getshopName = rSet.getString("shopName");
+                    String getFood = rSet.getString("food");
+                    String getPrice = rSet.getString("price");
                     // 输出数据
-                    System.out.print("id: " + getIdAccount + " ");
-                    System.out.print("名字:" + getName + " ");
-                    System.out.println("密码:" + getPassword);
+                    System.out.print("编号: " + getId + " ");
+                    System.out.print("店名:" + getshopName + " ");
+                    System.out.print("菜名:" + getFood);
+                    System.out.println("价格:" + getPrice);
 
                 }
                 rSet.close();
             } else if (num == 4) {
-                statement.executeUpdate("update  account set Name='" + username + "' ,"
-                        + " password='" + password + "' where idAccount='" + id + "'");  // 修改
-                print.printAndNote("修改成功", "账户id为" + id + "的用户名被修改为: " + username + " 密码被修改为: " + password);
+                statement.executeUpdate("update  npc set shopName='" + shopName + "' ,"
+                        + " food='" + food + "' where id='" + id + "'");  // 修改
+                print.printAndNote("修改成功", "编号为 " + id + " 的信息被修改为: 店名: " + shopName + " 菜名: " + food + "价格: " + price);
             }
 
 
@@ -89,5 +82,6 @@ public class DatabaseOperation {
 
     }
 }
+
 
 

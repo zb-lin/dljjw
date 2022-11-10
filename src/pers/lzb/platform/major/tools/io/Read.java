@@ -1,4 +1,4 @@
-package pers.lzb.platform.major.tools;
+package pers.lzb.platform.major.tools.io;
 
 import pers.lzb.platform.npc.trunk.ReadMenu;
 import pers.lzb.platform.npc.trunk.Menu;

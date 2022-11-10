@@ -1,5 +1,9 @@
 package pers.lzb.platform.major.tools;
 
+import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.major.tools.io.ReadFile;
+import pers.lzb.platform.major.tools.io.ReadNum;
+import pers.lzb.platform.major.tools.io.WriteFile;
 import pers.lzb.platform.major.trunk.Account;
 
 import java.io.IOException;
@@ -22,9 +26,6 @@ public class SignUp {
         readFile.readFile(fileName, array);
         Scanner sc = new Scanner(System.in);
         Print print = new Print();
-        print.print("请自定义id");
-        int id = sc.nextInt();
-        sc.nextLine();  // 吞掉回车
         print.print("请输入你的姓名");
         String username = sc.nextLine();
         for (int i = 0; i < array.size(); ++i) {
@@ -48,8 +49,11 @@ public class SignUp {
             array.add(account);
             WriteFile writeFile = new WriteFile();
             writeFile.writeFile(fileName, array);
-            DatabaseOperation.connect(1, id, username, password);  // 数据库测试
-            print.printAndNote("注册成功!", "用户注册成功,账号id为 " + id + " 用户名为: " + username + ",密码为: " + password);
+
+            ReadNum readNum = new ReadNum();  // 读取最后主键下一位
+            readNum.readNum();
+            DatabaseOperation.connect(1, ReadNum.num, username, password);
+            print.printAndNote("注册成功!", "用户注册成功,账号id为 " + ReadNum.num + " 用户名为: " + username + ",密码为: " + password);
 
         }
 

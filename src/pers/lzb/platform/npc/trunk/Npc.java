@@ -1,7 +1,7 @@
 package pers.lzb.platform.npc.trunk;
 
-import pers.lzb.platform.major.tools.GetName;
-import pers.lzb.platform.major.tools.Print;
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
 import pers.lzb.platform.npc.function.*;
 
 import java.io.IOException;

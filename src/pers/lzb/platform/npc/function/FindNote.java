@@ -1,7 +1,7 @@
 package pers.lzb.platform.npc.function;
 
-import pers.lzb.platform.major.tools.GetName;
-import pers.lzb.platform.major.tools.Print;
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
 
 import java.io.BufferedReader;
 

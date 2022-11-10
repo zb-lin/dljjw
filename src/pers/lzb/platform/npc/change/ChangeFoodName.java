@@ -1,8 +1,8 @@
 package pers.lzb.platform.npc.change;
 
-import pers.lzb.platform.major.tools.GetName;
-import pers.lzb.platform.major.tools.Print;
-import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.major.tools.io.Read;
 import pers.lzb.platform.npc.judge.JudgeFood;
 import pers.lzb.platform.npc.judge.JudgeFoodInFor;
 import pers.lzb.platform.npc.trunk.Menu;

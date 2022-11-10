@@ -1,8 +1,8 @@
 package pers.lzb.platform.buyer;
 
 
-import pers.lzb.platform.major.tools.Print;
-import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.major.tools.io.Read;
 import pers.lzb.platform.npc.trunk.Menu;
 
 import java.io.*;

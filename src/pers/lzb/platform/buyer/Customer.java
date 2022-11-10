@@ -1,8 +1,8 @@
 
 package pers.lzb.platform.buyer;
 
-import pers.lzb.platform.major.tools.GetName;
-import pers.lzb.platform.major.tools.Print;
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
 
 import java.io.IOException;
 import java.util.Scanner;

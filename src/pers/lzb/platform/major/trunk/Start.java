@@ -1,7 +1,7 @@
 package pers.lzb.platform.major.trunk;
 
 
-import pers.lzb.platform.major.tools.Print;
+import pers.lzb.platform.major.tools.io.Print;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,9 +21,7 @@ public class Start {
         while (true) {
             print.print("如果你还没有注册,请按: 1");
             print.print("如果你已经注册,请按: 2 登录");
-            print.print("如果你想注销账号,请按: 3");
-            print.print("如果你想查询账号,请按: 4");
-            print.print("如果你想修改账号,请按: 5");
+            print.print("如果你是管理员,请按: 3");
             print.print("如果你想退出,请按: 其他数字");
 
 

@@ -1,11 +1,13 @@
 package pers.lzb.platform.npc.function;
 
-import pers.lzb.platform.major.tools.GetName;
-import pers.lzb.platform.major.tools.Print;
-import pers.lzb.platform.major.tools.Read;
+import pers.lzb.platform.major.tools.io.ReadNum;
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.major.tools.io.Read;
 import pers.lzb.platform.npc.judge.JudgeFood;
 import pers.lzb.platform.npc.judge.JudgeFoodPrice;
 import pers.lzb.platform.npc.trunk.Menu;
+import pers.lzb.platform.npc.trunk.NpcDatabase;
 import pers.lzb.platform.npc.trunk.Set;
 
 import java.io.*;
@@ -46,6 +48,9 @@ public class AddFood {
 
         Set set = new Set();
         set.set(array, foodFileName, shopName, foodName, price);
+        ReadNum readNum = new ReadNum();
+        readNum.readNum();
+        NpcDatabase.npcDatabase(1, ReadNum.num,shopName,foodName,price);
         print.printAndNote("您的菜品已添加成功！！", GetName.name + " 在 " + shopName + " 添加菜品 " + foodName + " 成功," + "价格为 " + price + "元");
         print.print("");
     }

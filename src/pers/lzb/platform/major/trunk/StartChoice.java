@@ -1,17 +1,20 @@
 package pers.lzb.platform.major.trunk;
 
 import pers.lzb.platform.major.tools.*;
+import pers.lzb.platform.major.tools.io.GetName;
+import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.major.trunk.administrator.Administrator;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class StartChoice {
     /**
-     * 选择进入不同入口进行注册,登录,注销,修改等操作
+     * 选择进入不同入口进行注册,登录,管理员登录等操作
      *
      * @param fileName     账户文件路径
      * @param foodFileName 菜单文件路径
-     * @param number       用户选择 1: 注册  2: 登录  3: 退出
+     * @param number       用户选择 1: 注册  2: 登录  3: 修改信息  4: 管理员登录
      * @author lzb
      */
     public void startChoice(String fileName, String foodFileName, int number) throws IOException, SQLException {
@@ -27,20 +30,13 @@ public class StartChoice {
                 StartLogin startLogin = new StartLogin();  // 进入登录
                 startLogin.startLogin(fileName, foodFileName);
                 break;
+
             case 3:
-                print.note("注销账号");
-                DeleteAccount deleteAccount = new DeleteAccount();
-                deleteAccount.deleteAccount();
+                print.print("管理员登录");
+                Administrator administrator = new Administrator();
+                administrator.administrator();
                 break;
-            case 4:
-                print.print("查询账号");
-                DatabaseOperation.connect(3, 1, null, null);
-                break;
-            case 5:
-                print.note("修改账号");
-                ChangeAccount changeAccount = new ChangeAccount();
-                changeAccount.changeAccount();
-                break;
+
             default:  // 退出
                 print.note(GetName.name + " 退出");
                 print.print("\n");
