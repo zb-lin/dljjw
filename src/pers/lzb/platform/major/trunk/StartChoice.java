@@ -1,15 +1,13 @@
 package pers.lzb.platform.major.trunk;
 
-import pers.lzb.platform.major.tools.GetName;
-import pers.lzb.platform.major.tools.Print;
-import pers.lzb.platform.major.tools.SignUp;
+import pers.lzb.platform.major.tools.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class StartChoice {
     /**
-     * 选择进入不同入口
+     * 选择进入不同入口进行注册,登录,注销,修改等操作
      *
      * @param fileName     账户文件路径
      * @param foodFileName 菜单文件路径
@@ -28,6 +26,20 @@ public class StartChoice {
                 print.note("登录");
                 StartLogin startLogin = new StartLogin();  // 进入登录
                 startLogin.startLogin(fileName, foodFileName);
+                break;
+            case 3:
+                print.note("注销账号");
+                DeleteAccount deleteAccount = new DeleteAccount();
+                deleteAccount.deleteAccount();
+                break;
+            case 4:
+                print.print("查询账号");
+                DatabaseOperation.connect(3, 1, null, null);
+                break;
+            case 5:
+                print.note("修改账号");
+                ChangeAccount changeAccount = new ChangeAccount();
+                changeAccount.changeAccount();
                 break;
             default:  // 退出
                 print.note(GetName.name + " 退出");
