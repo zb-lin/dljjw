@@ -1,7 +1,7 @@
-package pers.lzb.platform.npc.function;
+package pers.lzb.platform.npc.tools;
 
-import pers.lzb.platform.major.tools.io.GetName;
-import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.account.tools.GetID;
+import pers.lzb.platform.account.tools.Print;
 
 import java.io.BufferedReader;
 
@@ -22,7 +22,7 @@ public class FindNote {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
             String[] str = line.split(" ");
-            if ((!line.isEmpty()) && GetName.name.equals(str[0])) {
+            if ((!line.isEmpty()) && GetID.ID.equals(str[0])) {
                 print.print(line);
             }
         }

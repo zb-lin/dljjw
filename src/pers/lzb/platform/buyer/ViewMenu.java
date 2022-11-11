@@ -1,32 +1,43 @@
 package pers.lzb.platform.buyer;
 
 
-import pers.lzb.platform.major.tools.io.Print;
-import pers.lzb.platform.major.tools.io.Read;
-import pers.lzb.platform.npc.trunk.Menu;
+import pers.lzb.platform.account.tools.Print;
 
 import java.io.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ViewMenu {
     /**
      * 看菜单
      *
-     * @param foodFileName 菜单文件路径
      * @author lzb
      */
-    public void viewMenu(String foodFileName) throws IOException {
-        Read read = new Read();
-        ArrayList<Menu> array;
-        array = read.read(foodFileName);  // 用数组读取菜单文件信息
+    public void viewMenu(Connection connection) throws IOException, SQLException {
         Print print = new Print();
 
-        for (int i = 0; i < array.size(); ++i) {  // 输出菜单信息
-            print.print(array.get(i).getShopName() + " " + array.get(i).getFood() + " " + array.get(i).getPrice() + "元");
-        }
-    }
 
+        String sql = "SELECT id,shopName,food,price FROM test.npc";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+
+        while (resultSet.next()) {
+            String id = resultSet.getString("id");
+            String shopName = resultSet.getString("shopName");
+            String foodName = resultSet.getString("food");
+            String price = resultSet.getString("price");
+            print.print(id + "  " + shopName + "  " + foodName + "  " + price);
+
+        }
+        resultSet.close();
+        preparedStatement.close();
+
+    }
 }
 
 

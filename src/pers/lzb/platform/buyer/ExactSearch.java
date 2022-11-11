@@ -1,6 +1,6 @@
 package pers.lzb.platform.buyer;
 
-import pers.lzb.platform.major.tools.io.Print;
+import pers.lzb.platform.account.tools.Print;
 
 
 import java.io.BufferedReader;

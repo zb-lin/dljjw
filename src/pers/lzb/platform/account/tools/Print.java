@@ -1,4 +1,4 @@
-package pers.lzb.platform.major.tools.io;
+package pers.lzb.platform.account.tools;
 
 
 import java.io.*;

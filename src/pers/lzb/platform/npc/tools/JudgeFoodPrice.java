@@ -1,4 +1,4 @@
-package pers.lzb.platform.npc.judge;
+package pers.lzb.platform.npc.tools;
 
 public class JudgeFoodPrice {
     /**
@@ -9,14 +9,13 @@ public class JudgeFoodPrice {
      * @author lzb
      */
     public boolean judgeFoodPrice(String price) {
-
         for (int i = 0; i < price.length(); ++i) {
             int ch = price.charAt(i);
             if (ch < 48 || ch > 57) {  // 使用ACSII判断
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 }
