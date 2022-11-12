@@ -1,12 +1,11 @@
 
 import pers.lzb.platform.account.tools.Print;
-import pers.lzb.platform.account.major.Start;
+import pers.lzb.platform.account.major.StartHandler;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 
 public class Main {
@@ -17,8 +16,6 @@ public class Main {
      */
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         Print print = new Print();
-        Scanner sc = new Scanner(System.in);
-
         print.print("欢迎来到庸叔的印度npc国际外卖平台！！");
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,7 +25,7 @@ public class Main {
         String password = "123456";
 
         Connection conn = DriverManager.getConnection(url, userName, password);
-        Start start = new Start();
+        StartHandler start = new StartHandler();
         start.start(conn);
     }
 }
