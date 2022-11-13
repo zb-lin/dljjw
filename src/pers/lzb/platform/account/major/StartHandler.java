@@ -62,12 +62,11 @@ public class StartHandler {
      */
     public void startLogin(Connection connection) throws SQLException, IOException, ClassNotFoundException {
         AccountHandler accountHandler = new AccountHandler();
-
         Scanner sc = new Scanner(System.in);
         Print print = new Print();
 
         if (accountHandler.login(connection)) {
-            print.print("如果你是indiaNpc请按:1 ,如果你是买家，请按:2");
+            print.print("如果你是indiaNpc请按:1 ,如果你是买家，请按:2,  按其他回到开始界面");
             String num = sc.nextLine();
 
             if (num.equals("1")) {

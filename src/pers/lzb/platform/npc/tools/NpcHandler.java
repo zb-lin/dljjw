@@ -102,9 +102,9 @@ public class NpcHandler {
             print.note(AccountHandler.ID + "查找id为" + id + "的菜的信息");
             print.print("编号  店名  菜名  价格");
             print.printAndNote(res.getString("id") + " " + res.getString("shopName") + " " +
-                            res.getString("food") + " " + res.getString("price"),
+                    res.getString("food") + " " + res.getString("price"), AccountHandler.ID + "查找菜品: " +
                     res.getString("id") + " " + res.getString("shopName") + " " +
-                            res.getString("food") + " " + res.getString("price"));
+                    res.getString("food") + " " + res.getString("price"));
         } else {
             print.print("找不到该菜品");
         }

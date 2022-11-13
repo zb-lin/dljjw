@@ -112,12 +112,10 @@ public class CustomerHandler {
             }
 
             print.print("如果你点餐完毕，请按:1");
-            int num = sc.nextInt();
-            if (num == 1) {
-                sc.nextLine();
+           String num = sc.nextLine();
+            if (num.equals("1")) {
                 break;
             }
-            sc.nextLine();
         }
         if (sum == 0) {
             print.print("欢迎下次再来");
