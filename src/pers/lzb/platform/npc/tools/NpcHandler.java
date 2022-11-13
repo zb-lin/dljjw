@@ -16,8 +16,7 @@ public class NpcHandler {
      *
      * @author lzb
      */
-    public void addFood(Connection connection) throws IOException, SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+    public void addFood(Connection connection) throws IOException, SQLException {
         Statement statement = connection.createStatement();
         Scanner sc = new Scanner(System.in);
         Print print = new Print();
@@ -26,11 +25,11 @@ public class NpcHandler {
         String id = sc.nextLine();
 
         String sql = " select id from npc where id=? ";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, id);  // 给sql语句的第1个问号赋值
-        ResultSet res = ps.executeQuery();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, id);  // 给sql语句的第1个问号赋值
+        ResultSet resultSet = preparedStatement.executeQuery();
 
-        if (res.next() && this.judgeInt(id)) {
+        if (resultSet.next() && this.judgeInt(id)) {
             print.print("该编号不可用");
         } else {
             print.print("请输入店名");
@@ -96,9 +95,9 @@ public class NpcHandler {
         print.print("请输入要查询的菜品的编号");
         String id = sc.nextLine();
         String sql1 = " select id ,shopName,food,price,quantity from npc where id= ? ";
-        PreparedStatement ps = connection.prepareStatement(sql1);
-        ps.setString(1, id);
-        ResultSet res = ps.executeQuery();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql1);
+        preparedStatement.setString(1, id);
+        ResultSet res = preparedStatement.executeQuery();
         if (res.next()) {
             print.note(AccountHandler.ID + "查找id为" + id + "的菜的信息");
             print.print("编号  店名  菜名  价格  数量");
@@ -111,7 +110,7 @@ public class NpcHandler {
         } else {
             print.print("找不到该菜品");
         }
-        ps.close();
+        preparedStatement.close();
         res.close();
 
     }

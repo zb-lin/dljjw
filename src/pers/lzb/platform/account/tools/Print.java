@@ -26,12 +26,12 @@ public class Print {
     public void printAndNote(String string, String str) throws IOException {
 
         System.out.println(string);
-        FileWriter fw = new FileWriter("note.txt", true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.append(str);
-        bw.newLine();
-        bw.close();
-        fw.close();
+        FileWriter fileWriter = new FileWriter("note.txt");
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.append(str);
+        bufferedWriter.newLine();
+        bufferedWriter.close();
+        fileWriter.close();
     }
 
     /**
@@ -43,11 +43,11 @@ public class Print {
 
     public void note(String str) throws IOException {
 
-        FileWriter fw = new FileWriter("note.txt", true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.append(str);
-        bw.newLine();
-        bw.close();
-        fw.close();
+        FileWriter fileWriter = new FileWriter("note.txt");
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.append(str);
+        bufferedWriter.newLine();
+        bufferedWriter.close();
+        fileWriter.close();
     }
 }

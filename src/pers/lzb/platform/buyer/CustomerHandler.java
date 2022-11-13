@@ -42,7 +42,7 @@ public class CustomerHandler {
      *
      * @author lzb
      */
-    public void foodDelivery() throws IOException {
+    public void foodDelivery() {
         Calendar nowTime = Calendar.getInstance();  // 得到当前时间
         Scanner sc = new Scanner(System.in);
         Print print = new Print();
@@ -59,7 +59,6 @@ public class CustomerHandler {
             nowTime.add(Calendar.YEAR, 1);  // 当前时间加1小时
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  // 转换时间格式
             print.print("预计送达时间:" + sdf.format(nowTime.getTime()));
-            sc.nextLine();  // 吞掉一个回车,避免后续地址输入回车
         }
     }
 

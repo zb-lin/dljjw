@@ -34,21 +34,15 @@ public class StartHandler {
 
             String num = sc.nextLine();
 
-            if (num.equals("1")) {
-                accountHandler.signUp(conn);
-
-            } else if (num.equals("2")) {
-                this.startLogin(conn);
-
-            } else if (num.equals("3")) {
-
-                accountHandler.changePassword(conn);
-            } else if (num.equals("4")) {
-                accountHandler.deleteAccount(conn);
-
-            } else {
-                conn.close();
-                System.exit(0);
+            switch (num) {
+                case "1" -> accountHandler.signUp(conn);  // 注册
+                case "2" -> this.startLogin(conn);  // 登录
+                case "3" -> accountHandler.changePassword(conn);  // 修改密码
+                case "4" -> accountHandler.deleteAccount(conn);  // 注销账号
+                default -> {
+                    conn.close();
+                    System.exit(0);  // 退出
+                }
             }
 
         }

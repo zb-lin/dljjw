@@ -32,10 +32,10 @@ public class AccountHandler {
         String id = sc.nextLine();
 
         String sql = " select id from account where id=? ";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, id);  // 给sql语句的第1个问号赋值
-        ResultSet res = ps.executeQuery();
-        if (res.next()) {
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, id);  // 给sql语句的第1个问号赋值
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
             print.print("该用户已注册");
         } else {
             print.print("请输入密码：");
@@ -64,36 +64,41 @@ public class AccountHandler {
         Print print = new Print();
         Scanner sc = new Scanner(System.in);
 
-        print.print("请输入你的账号");
+        print.print("请输入你的用户名");
         String id = sc.nextLine();
         String sql1 = " select id from account where id=? ";
-        PreparedStatement ps = connection.prepareStatement(sql1);
-        ps.setString(1, id);  // 给sql语句的第1个问号赋值
-        ResultSet res = ps.executeQuery();
-        if (res.next()) {
+        PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+        preparedStatement1.setString(1, id);  // 给sql语句的第1个问号赋值
+        ResultSet resultSet1 = preparedStatement1.executeQuery();
+        if (resultSet1.next()) {
             print.print("请输入密码");
             String password = sc.nextLine();
             String sql2 = "select * from account where id= ? and password= ?";
-            PreparedStatement ps1 = connection.prepareStatement(sql2);
-            ps1.setString(1, id);
-            ps1.setString(2, password);
-            ResultSet res1 = ps1.executeQuery();
-            if (res1.next()) {
+            PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
+            preparedStatement2.setString(1, id);
+            preparedStatement2.setString(2, password);
+            ResultSet resultSet2 = preparedStatement1.executeQuery();
+            if (resultSet2.next()) {
                 this.getID(id);
-                print.printAndNote("登录成功！", this.ID + "登录成功");
-                ps.close();
-                res.close();
+                print.printAndNote("登录成功！", ID + "登录成功");
+                preparedStatement2.close();
+                resultSet2.close();
+                preparedStatement1.close();
+                resultSet1.close();
                 return true;
             } else {
                 print.print("密码错误");
-                ps.close();
-                res.close();
+                preparedStatement2.close();
+                resultSet2.close();
+                preparedStatement1.close();
+                resultSet1.close();
             }
         } else {
             print.print("该用户还未注册");
         }
-        ps.close();
-        res.close();
+        preparedStatement1.close();
+        resultSet1.close();
+
         return false;
     }
 
@@ -158,24 +163,25 @@ public class AccountHandler {
 
 
         String sql1 = " select id from account where id=? ";
-        PreparedStatement ps = connection.prepareStatement(sql1);
-        ps.setString(1, id);
-        ResultSet res = ps.executeQuery();
-        if (res.next()) {
+        PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+        preparedStatement1.setString(1, id);
+        ResultSet resultSet1 = preparedStatement1.executeQuery();
+        if (resultSet1.next()) {
             String sql2 = " select * from account where id= ? and password= ?";
-            PreparedStatement ps1 = connection.prepareStatement(sql2);
-            ps1.setString(1, id);
-            ps1.setString(2, oldPassword);
-            ResultSet res1 = ps1.executeQuery();
-            if (res1.next()) {
+            PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
+            preparedStatement2.setString(1, id);
+            preparedStatement2.setString(2, oldPassword);
+            ResultSet resultSet2 = preparedStatement2.executeQuery();
+            if (resultSet2.next()) {
                 print.print("请输入修改后的密码");
                 String newPassword = sc.nextLine();
                 String updateSql = "update account set password = ? where id = ?";
-                PreparedStatement ps2 = connection.prepareStatement(updateSql);
-                ps2.setString(1, newPassword);
-                ps2.setString(2, id);
-                ps2.executeUpdate();  // 执行更新
+                PreparedStatement preparedStatement3 = connection.prepareStatement(updateSql);
+                preparedStatement3.setString(1, newPassword);
+                preparedStatement3.setString(2, id);
+                preparedStatement3.executeUpdate();  // 执行更新
                 print.printAndNote("修改成功！", "id为: " + id + " 的账户密码被修改为: " + newPassword);
+                preparedStatement3.close();
             } else {
                 print.print("密码错误");
             }
@@ -183,8 +189,8 @@ public class AccountHandler {
             print.print("此用户名还未注册，请先注册！");
         }
 
-        ps.close();
-        res.close();
+        preparedStatement1.close();
+        resultSet1.close();
     }
 
 
