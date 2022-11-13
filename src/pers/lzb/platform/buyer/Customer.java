@@ -26,7 +26,7 @@ public class Customer {
             String num = sc.nextLine();
             if (num.equals("1")) {
                 print.print("请看菜单！！");
-                print.print("编号  店名  菜名  价格");
+                print.print("编号  店名  菜名  价格  数量");
                 CustomerHandler viewMenu = new CustomerHandler();
                 viewMenu.viewMenu(connection);
             } else if (num.equals("2")) {

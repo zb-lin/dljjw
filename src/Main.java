@@ -27,6 +27,7 @@ public class Main {
         Connection conn = DriverManager.getConnection(url, userName, password);
         StartHandler start = new StartHandler();
         start.start(conn);
+
     }
 }
 

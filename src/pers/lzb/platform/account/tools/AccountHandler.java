@@ -31,7 +31,7 @@ public class AccountHandler {
         print.print("请输入id:");
         String id = sc.nextLine();
 
-        String sql = " select id from account1 where id=? ";
+        String sql = " select id from account where id=? ";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, id);  // 给sql语句的第1个问号赋值
         ResultSet res = ps.executeQuery();
@@ -47,7 +47,7 @@ public class AccountHandler {
             if (!Pattern.matches(pattern, password)) {  // 判断password是否符合要求
                 print.print("你的密码必须同时包括数字和字母且大于3位");
             } else {
-                statement.executeUpdate("insert  into account1 value ('" + id + "','" + password + "')");
+                statement.executeUpdate("insert  into account value ('" + id + "','" + password + "')");
                 print.printAndNote("注册成功!", "用户注册成功,账号id为 " + id + ",密码为: " + password);
             }
         }
@@ -66,14 +66,14 @@ public class AccountHandler {
 
         print.print("请输入你的账号");
         String id = sc.nextLine();
-        String sql1 = " select id from account1 where id=? ";
+        String sql1 = " select id from account where id=? ";
         PreparedStatement ps = connection.prepareStatement(sql1);
         ps.setString(1, id);  // 给sql语句的第1个问号赋值
         ResultSet res = ps.executeQuery();
         if (res.next()) {
             print.print("请输入密码");
             String password = sc.nextLine();
-            String sql2 = "select * from account1 where id= ? and password= ?";
+            String sql2 = "select * from account where id= ? and password= ?";
             PreparedStatement ps1 = connection.prepareStatement(sql2);
             ps1.setString(1, id);
             ps1.setString(2, password);
@@ -99,7 +99,7 @@ public class AccountHandler {
 
 
     /**
-     * 利用MySQL注销账号(本地文件保留)
+     * 利用MySQL注销账号
      *
      * @author lzb
      */
@@ -112,18 +112,18 @@ public class AccountHandler {
         print.print("请输入密码");
         String password = sc.nextLine();
 
-        String sql1 = "select id from account1 where id= ? ";
+        String sql1 = "select id from account where id= ? ";
         PreparedStatement preparedStatement = connection.prepareStatement(sql1);
         preparedStatement.setString(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            String sql2 = "select * from account1 where id = ? and password =?";
+            String sql2 = "select * from account where id = ? and password =?";
             PreparedStatement preparedStatement1 = connection.prepareStatement(sql2);
             preparedStatement1.setString(1, id);
             preparedStatement1.setString(2, password);
             ResultSet resultSet1 = preparedStatement1.executeQuery();
             if (resultSet1.next()) {
-                String sql3 = "delete from account1 where id = ?";
+                String sql3 = "delete from account where id = ?";
                 PreparedStatement preparedStatement2 = connection.prepareStatement(sql3);
                 preparedStatement2.setString(1, id);
                 preparedStatement2.executeUpdate();
@@ -157,12 +157,12 @@ public class AccountHandler {
         String oldPassword = sc.nextLine();
 
 
-        String sql1 = " select id from account1 where id=? ";
+        String sql1 = " select id from account where id=? ";
         PreparedStatement ps = connection.prepareStatement(sql1);
         ps.setString(1, id);
         ResultSet res = ps.executeQuery();
         if (res.next()) {
-            String sql2 = " select * from account1 where id= ? and password= ?";
+            String sql2 = " select * from account where id= ? and password= ?";
             PreparedStatement ps1 = connection.prepareStatement(sql2);
             ps1.setString(1, id);
             ps1.setString(2, oldPassword);
@@ -170,7 +170,7 @@ public class AccountHandler {
             if (res1.next()) {
                 print.print("请输入修改后的密码");
                 String newPassword = sc.nextLine();
-                String updateSql = "update account1 set password = ? where id = ?";
+                String updateSql = "update account set password = ? where id = ?";
                 PreparedStatement ps2 = connection.prepareStatement(updateSql);
                 ps2.setString(1, newPassword);
                 ps2.setString(2, id);

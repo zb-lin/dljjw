@@ -38,15 +38,16 @@ public class NpcHandler {
             print.print("请输入菜名");
             String foodName = sc.nextLine();
             print.print("请输入价格");
-            String price = sc.nextLine();
+            int price = sc.nextInt();
+            print.print("请输入美食数量");
+            int quantity = sc.nextInt();
 
-            if (this.judgeInt(price)) {
-                statement.executeUpdate("insert  into npc value ('" + id + "','" + shopName + "','" + foodName + "','" + price + "')");
-                print.printAndNote("您的菜品已添加成功!", AccountHandler.ID + ": " + "菜品添加成功,店名为: "
-                        + shopName + " 菜名为: " + foodName + " 价格为: " + price);
-            } else {
-                print.print("价格不为整数,添加失败");
-            }
+
+            statement.executeUpdate("insert  into npc value ('" + id + "','" + shopName + "','" + foodName + "','" + price + "','" + quantity + "')");
+            print.printAndNote("您的菜品已添加成功!", AccountHandler.ID + ": " + "菜品添加成功,店名为: "
+                    + shopName + " 菜名为: " + foodName + " 价格为: " + price + " 数量为: " + quantity);
+
+
         }
 
 
@@ -94,17 +95,19 @@ public class NpcHandler {
         Scanner sc = new Scanner(System.in);
         print.print("请输入要查询的菜品的编号");
         String id = sc.nextLine();
-        String sql1 = " select id ,shopName,food,price from npc where id= ? ";
+        String sql1 = " select id ,shopName,food,price,quantity from npc where id= ? ";
         PreparedStatement ps = connection.prepareStatement(sql1);
         ps.setString(1, id);
         ResultSet res = ps.executeQuery();
         if (res.next()) {
             print.note(AccountHandler.ID + "查找id为" + id + "的菜的信息");
-            print.print("编号  店名  菜名  价格");
-            print.printAndNote(res.getString("id") + " " + res.getString("shopName") + " " +
-                    res.getString("food") + " " + res.getString("price"), AccountHandler.ID + "查找菜品: " +
+            print.print("编号  店名  菜名  价格  数量");
+            print.printAndNote(res.getString("id") + " " + res.getString("shopName")
+                    + " " + res.getString("food") + " " + res.getString("price")
+                    + " " + res.getString("quantity"), AccountHandler.ID + "查找菜品: " +
                     res.getString("id") + " " + res.getString("shopName") + " " +
-                    res.getString("food") + " " + res.getString("price"));
+                    res.getString("food") + " " + res.getString("price") + " " +
+                    res.getString("quantity"));
         } else {
             print.print("找不到该菜品");
         }
@@ -127,7 +130,7 @@ public class NpcHandler {
         print.print("请输入要修改的菜名的id！");
         String id = sc.nextLine();
 
-        String sql = "select id,shopName,food,price from npc where id=?";
+        String sql = "select id,shopName,food,price,quantity from npc where id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -137,21 +140,23 @@ public class NpcHandler {
             print.print("请输入修改后的菜名");
             String foodName = sc.nextLine();
             print.print("请输入修改后的价格");
-            String price = sc.nextLine();
+            int price = sc.nextInt();
+            print.print("请输入修改后的数量");
+            int quantity = sc.nextInt();
 
-            if (this.judgeInt(price)) {
-                String sql1 = "update npc set shopName = ? ,food=?,price=? where id = ?";
-                PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
 
-                preparedStatement1.setString(1, shopName);
-                preparedStatement1.setString(2, foodName);
-                preparedStatement1.setString(3, price);
-                preparedStatement1.setString(4, id);
-                preparedStatement1.executeUpdate();
-                print.printAndNote("修改成功", AccountHandler.ID + "将编号为: " + id + " 的菜的信息修改为 " + "店名: " + shopName + "菜名: " + foodName + "价格: " + price);
-            } else {
-                print.print("输入价格不为整数,添加失败");
-            }
+            String sql1 = "update npc set shopName = ? ,food=?,price=? ,quantity=? where id = ?";
+            PreparedStatement preparedStatement1 = connection.prepareStatement(sql1);
+
+            preparedStatement1.setString(1, shopName);
+            preparedStatement1.setString(2, foodName);
+            preparedStatement1.setInt(3, price);
+            preparedStatement1.setInt(4, quantity);
+            preparedStatement1.setString(5, id);
+            preparedStatement1.executeUpdate();
+            print.printAndNote("修改成功", AccountHandler.ID + "将编号为: " + id + " 的菜的信息修改为 "
+                    + "店名: " + shopName + "菜名: " + foodName + "价格: " + price + " 数量: " + quantity);
+
 
         } else {
             print.print("该编号为空");

@@ -19,7 +19,7 @@ public class CustomerHandler {
      */
     public void viewMenu(Connection connection) throws SQLException {
         Print print = new Print();
-        String sql = "SELECT id,shopName,food,price FROM test.npc";
+        String sql = "SELECT id,shopName,food,price,quantity FROM test.npc";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -27,8 +27,9 @@ public class CustomerHandler {
             String id = resultSet.getString("id");
             String shopName = resultSet.getString("shopName");
             String foodName = resultSet.getString("food");
-            String price = resultSet.getString("price");
-            print.print(id + "  " + shopName + "  " + foodName + "  " + price);
+            int price = resultSet.getInt("price");
+            int quantity = resultSet.getInt("quantity");
+            print.print(id + "  " + shopName + "  " + foodName + "  " + price + " " + quantity);
 
         }
         resultSet.close();
@@ -82,7 +83,8 @@ public class CustomerHandler {
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
             print.print(resultSet.getString("id") + " " + resultSet.getString("shopName") + " "
-                    + resultSet.getString("food") + " " + resultSet.getString("price"));
+                    + resultSet.getString("food") + " " + resultSet.getString("price") + " "
+                    + resultSet.getString("quantity"));
         }
         resultSet.close();
         statement.close();
@@ -100,19 +102,32 @@ public class CustomerHandler {
         while (true) {
             print.print("请输入你要的菜的编号！");
             String id = sc.nextLine();
-            String sql = "select id,shopName,food,price from npc where id = ?";
+            String sql = "select id,shopName,food,price,quantity from npc where id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                sum = sum + Float.parseFloat(resultSet.getString("price"));
-                print.note(AccountHandler.ID + " 在 " + resultSet.getString("shopName") + " 点了 " + resultSet.getString("food"));
+                if (resultSet.getInt("quantity") == 0) {
+                    print.print("对不起,现在没货");
+                } else {
+                    String sql2 = "update npc set quantity =? where id = ?";
+                    PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
+                    preparedStatement2.setInt(1, resultSet.getInt("quantity") - 1);
+                    preparedStatement2.setString(2, id);
+                    preparedStatement2.executeUpdate();
+                    sum = sum + Float.parseFloat(resultSet.getString("price"));
+                    print.note(AccountHandler.ID + " 在 " + resultSet.getString("shopName") + " 点了 " +
+                            resultSet.getString("food")
+                            + "还剩下" + (resultSet.getInt("quantity") - 1) + "份");
+                }
+
+
             } else {
                 print.print("你要的菜不存在");
             }
 
             print.print("如果你点餐完毕，请按:1");
-           String num = sc.nextLine();
+            String num = sc.nextLine();
             if (num.equals("1")) {
                 break;
             }
